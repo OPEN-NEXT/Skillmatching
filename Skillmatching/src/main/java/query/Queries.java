@@ -10,7 +10,7 @@ public class Queries {
 	 CQ3:	Can I find a person with a certain skill using the ontology?
 	 */
 	
-	private String prefixes="PREFIX : <https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data//on_Instances.owl#>\r\n" + 
+	private String prefixes="PREFIX : <https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_Instances.owl#>\r\n" + 
 			"PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\n" + 
 			"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" + 
 			"PREFIX xml: <http://www.w3.org/XML/1998/namespace>\r\n" + 
@@ -37,7 +37,7 @@ public class Queries {
 	/**This query looks at the skills of a users*/
 	public String UserSkill(String id) {
 		String query="SELECT ?User ?Skill_Entity\r\n" + 
-				"WHERE { ?Usera oshpd:User; oshpd:User_id \""+id+"\"; skills:skill_action ?Skill_Entity.}\r\n"; 
+				"WHERE { ?Usera oshpd:User; oshpd:User_id \""+id+"\"; skills:skill_action ?Skill_Entity.}"; 
 		String out= prefixes+query;
 		return out;
 	}
@@ -51,7 +51,7 @@ public class Queries {
 	/**This query looks for general interests of all users; if skills or not.*/
 	public String UserInterest() {
 		String query="SELECT ?User ?something\r\n" + 
-				"WHERE {?User oshpd:interested_in ?something.}\r\n";
+				"WHERE {?User oshpd:interested_in ?something.}";
 		String out= prefixes+query;
 		return out;
 	}
@@ -59,7 +59,7 @@ public class Queries {
 	/**This query looks for general interests of a specific user; if skills or not.*/
 	public String UserInterest(String id) {
 		String query="SELECT ?User ?something\r\n" + 
-				"WHERE {?User oshpd:User_id \""+id+"\" ;oshpd:interested_in ?something.}\r\n";
+				"WHERE {?User oshpd:User_id \""+id+"\" ;oshpd:interested_in ?something.}";
 		String out= prefixes+query;
 		return out;
 	}
@@ -75,7 +75,7 @@ public class Queries {
 	public String UserSkillInterest() {
 		String query="SELECT ?User ?Skill_Entity\r\n" + 
 				"WHERE {?User oshpd:interested_in ?Skill_Entity.\r\n" + 
-				"?Skill_Entity a skills:Skill_Entity.}\r\n";
+				"?Skill_Entity a skills:Skill_Entity.}";
 		String out= prefixes+query;
 		return out;
 	}
@@ -83,7 +83,7 @@ public class Queries {
 	public String UserSkillInterest(String id) {
 		String query="SELECT ?User ?Skill_Entity\r\n" + 
 				"WHERE {?User a oshpd:User; oshpd:User_id \""+id+"\"; oshpd:interested_in ?Skill_Entity.\r\n" + 
-				"?Skill_Entity a skills:Skill_Entity.}\r\n";
+				"?Skill_Entity a skills:Skill_Entity.}";
 		String out= prefixes+query;
 		return out;
 	}
@@ -151,8 +151,7 @@ public class Queries {
 	/**This query finds users with a specific skill*/
 	public String SkillUser(String skill) {
 		String query="SELECT ?User ?Skill_Entity \r\n" + 
-				"WHERE {?Skill_Entity skills:SkillEntity_name \""+skill+"\"; skills:possible_action ?User.}\r\n" + 
-				"";
+				"WHERE {?Skill_Entity skills:SkillEntity_name \""+skill+"\"; skills:possible_action ?User.}";
 		String out= prefixes+query;
 		return out;
 	}

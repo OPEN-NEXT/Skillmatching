@@ -18,9 +18,17 @@ public class QueryController {
 	private Queries querystrings = new Queries();
 	private QueryExec qEx = new QueryExec();
 	
+	@GetMapping(value="/UserSkillQuery/")
+	public LinkedList<ArrayList<String>> ProjectUserInterestQuery() {
+		return qEx.execQuery(querystrings.UserSkill());
+	}
 	@GetMapping(value="/UserSkillInterestQuery/{id}")
 	public LinkedList<ArrayList<String>> UserSkillInterestQuery(@PathVariable String id) {
 		return qEx.execQuery(querystrings.UserSkillInterest(id));
+	}
+	@GetMapping(value="/ProjectUserInterestQuery/{id}")
+	public LinkedList<ArrayList<String>> ProjectUserInterestQuery(@PathVariable String id) {
+		return qEx.execQuery(querystrings.ProjectUserInterest(id));
 	}
 	
 	@GetMapping(value="/test/{id}")

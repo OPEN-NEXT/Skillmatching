@@ -10,7 +10,8 @@
      xmlns:oshpd="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:skills="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl#"
-     xmlns:OSHPD_schema="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/OSHPD_schema.owl#">
+     xmlns:OSHPD_schema="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/OSHPD_schema.owl#"
+     xmlns:OSHPDP_schema="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/OSHPDP_schema.owl#">
     <owl:Ontology rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_Instances.owl">
         <owl:imports rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl"/>
         <owl:imports rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl"/>

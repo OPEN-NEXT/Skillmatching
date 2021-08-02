@@ -14,12 +14,13 @@ import reader.JSONReader;
 public class CreateInstances {
 
 	//variable for skill ontology iri
-	private static String skillIRI="https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_skills.owl";
+	private static String skillIRI="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl";
 	//variable for mapping ontology iri
-	private static String mappingIRI="https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl";
+	private static String mappingIRI="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl";
 	//variable for instance ontology iri
-	private static String instanceIRI="https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_Instances.owl";
-	
+	private static String instanceIRI="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_Instances.owl";
+	//directory where the project is stored
+	private static String directory="C://Springboot-Repository//WP3_Skillmatching//Skillmatching//data//";
 	
 	public static void main (String[] args) throws IOException {
 		/*A mapping OntoModeler is created to instantiate Project 
@@ -64,17 +65,17 @@ public class CreateInstances {
 		//create one JSONReader per data file: issues, projects, user
 		JSONReader readIssues=new JSONReader();
 		//set the file to read and open it
-		readIssues.setFile("C://Springboot-Repository//Skillmatch//Skillmatching//data//sampledata_issues_anonym.json");
+		readIssues.setFile(directory+"sampledata_issues_anonym.json");
 		readIssues.open();
 		
 		JSONReader readUser=new JSONReader();
 		//set the file to read and open it
-		readUser.setFile("C://Springboot-Repository//Skillmatch//Skillmatching//data//sampledata_user_anonym.json");
+		readUser.setFile(directory+"sampledata_user_anonym.json");
 		readUser.open();
 		
 		JSONReader readProjects=new JSONReader();
 		//set the file to read and open it
-		readProjects.setFile("C://Springboot-Repository//Skillmatch//Skillmatching//data//sampledata_projects_anonym.json");
+		readProjects.setFile(directory+"sampledata_projects_anonym.json");
 		readProjects.open();
 		
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,7 +182,7 @@ public class CreateInstances {
 	
 		
 		//Set output string for file
-		String ntoutput="C://Springboot-Repository//Skillmatch//Skillmatching//data//on_Instances.nt";
+		String ntoutput=directory+"on_Instances.nt";
 		ntmapper.setNToutputLocation(ntoutput);
 		ntmapper.toNTFile();
 		
@@ -194,7 +195,7 @@ public class CreateInstances {
 		ntparse.setOntologyIRI(instanceIRI);
 		ntparse.addImport(mapping.getIRIString());
 		ntparse.addImport(skillIRI);
-		ntparse.setOutput("C://Springboot-Repository//Skillmatch//Skillmatching//data//on_Instances.owl");
+		ntparse.setOutput(directory+"on_Instances.owl");
 		ntparse.parseNT(instanceIRI,"RDF/XML");
 		
 		
@@ -206,7 +207,7 @@ public class CreateInstances {
 		//instance.mergeOntology(mapping.getIRIString());
 		instance.assertInferences();
 		try {
-			instance.saveOntology("C://Springboot-Repository//Skillmatch//Skillmatching//data//on_Instances.owl");
+			instance.saveOntology(directory+"on_Instances.owl");
 		} catch (OWLOntologyStorageException e) {
 			e.printStackTrace();
 		} catch (OWLOntologyCreationException e) {

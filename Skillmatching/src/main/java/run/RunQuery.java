@@ -15,7 +15,7 @@ public class RunQuery {
 	public static void main (String[] args) throws IOException {
 		
 		QueryExec searchforme= new QueryExec();
-		searchforme.setIRI("https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_Instances.owl");
+		searchforme.setIRI("https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_Instances.owl");
 		searchforme.openModel("OWL");
 		
 		Queries q= new Queries();

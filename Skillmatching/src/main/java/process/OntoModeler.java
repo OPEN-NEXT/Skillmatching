@@ -447,7 +447,7 @@ System.out.println("\t"+opa.getDomain().toString());
 			
 			OWLOntologyMerger merger = new OWLOntologyMerger(onto_man);
 			//the merged ontology will have the same iri
-			onto=merger.createMergedOntology(onto_man, IRI.create("\"https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema_merged.owl"));
+			onto=merger.createMergedOntology(onto_man, IRI.create("https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema_merged.owl"));
 			System.out.println("Merge successful.");
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();

@@ -24,10 +24,10 @@ public class CreateSkill {
 		////////////////////////////////////////////////////////////////////////////////
 		String skill_inputfilelocation=projectdir+"/data/skills_schema.json";
 		String skill_ontolocation=projectdir+"/data/on_skills_void.owl";
-		String skill_ontofilelocation=projectdir+"/on_skills_classes.owl";
+		String skill_ontofilelocation=projectdir+"/data/on_skills_classes.owl";
 		
-		String skill_prefix="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/ontology/on_skills.owl";
-		//String skillIRI="https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_skills.owl";
+		String skill_prefix="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl";
+		//String skillIRI="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl";
 
 				
 		////////////////////////////////////////////////////////////////////////////////

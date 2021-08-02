@@ -35,7 +35,7 @@ public class SkillReader {
 
 	
 	/**skills is a namespace variable for the instances. Skills will be instantiated as: skills+"#instance_attribut"*/
-	private static String skills="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/ontology/skills.owl";
+	private static String skills="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl";
 	/**JsonReader reader is used to read and parse information of json files.
 	 * @type JsonReader JsonReader is a custom class in the project.*/
 	private JsonReader reader;

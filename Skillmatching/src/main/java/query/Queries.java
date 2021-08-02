@@ -10,14 +10,14 @@ public class Queries {
 	 CQ3:	Can I find a person with a certain skill using the ontology?
 	 */
 	
-	private String prefixes="PREFIX : <https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_Instances.owl#>\r\n" + 
+	private String prefixes="PREFIX : <https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data//on_Instances.owl#>\r\n" + 
 			"PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\n" + 
 			"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" + 
 			"PREFIX xml: <http://www.w3.org/XML/1998/namespace>\r\n" + 
 			"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\r\n" + 
 			"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n" + 
-			"PREFIX oshpd: <https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#>\r\n" + 
-			"PREFIX skills: <https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_skills.owl#>\r\n";
+			"PREFIX oshpd: <https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#>\r\n" + 
+			"PREFIX skills: <https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl#>\r\n";
 
 	///////////////////////////////////////////////////////////////
 	//

@@ -27,7 +27,7 @@ public class QueryExec {
 	}
 	
 	public QueryExec() {
-		this.setIRI("https://github.com/konierik/Skillmatching/raw/main/Skillmatching/data/on_Instances.owl");
+		this.setIRI("https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_Instances.owl");
 		this.openModel("OWL");
 	}
 

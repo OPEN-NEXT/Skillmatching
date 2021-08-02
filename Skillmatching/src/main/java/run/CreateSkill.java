@@ -24,7 +24,7 @@ public class CreateSkill {
 		////////////////////////////////////////////////////////////////////////////////
 		String skill_inputfilelocation=projectdir+"/data/skills_schema.json";
 		String skill_ontolocation=projectdir+"/data/on_skills_void.owl";
-		String skill_ontofilelocation=projectdir+"/data/on_skills_classes.owl";
+		String skill_ontofilelocation=projectdir+"/data/on_skills.owl";
 		
 		String skill_prefix="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl";
 		//String skillIRI="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl";
@@ -62,7 +62,7 @@ public class CreateSkill {
 		//set prefix for the instances
 		skully.setSkillPrefix(skill_prefix);
 		//instantiate the set targets as instances of a class relating to the respective entity_types
-		skully.instantiateTargetsAsClass();
+		skully.instantiateTargets();
 		//save instantiated ontology. 
 		skully.saveOntology(skill_ontofilelocation);
 		

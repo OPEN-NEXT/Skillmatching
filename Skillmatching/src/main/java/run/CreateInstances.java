@@ -187,7 +187,7 @@ public class CreateInstances {
 		ntmapper.toNTFile();
 		
 		NTParser ntparse=new NTParser(ntoutput);
-		ntparse.setPrefix(":", instanceIRI);
+		ntparse.setPrefix("", instanceIRI);
 		ntparse.setPrefix("oshpd", mapping.getIRIString());
 		ntparse.setPrefix("skills", skillIRI);
 		ntparse.setPrefix("owl", "http://www.w3.org/2002/07/owl");

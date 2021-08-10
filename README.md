@@ -19,10 +19,14 @@ Three main user stories are scope of the case:
  3. As a project core team, we want to find contributors based on their skills and interests so that they can help in carrying out a specific task.
 
 ## CURRENT STATUS
+The current development aim was to create a network that is able to give possibilities on assigning skills and interests to contributor profiles, tasks and projects and make them visible for queries. This was built based on the User flows described bevorhand. <br>
 
-- Currently the ontology model is the first draft and has to be validated with OSH project data.
+- The currently first draft of the ontology model is validated with a sample of project data from Wikifactory. For the validation, user flows were identified and, based on this, queries developed to check for existing results. 
+- The ontology model has still to be validated by user interaction.
 - Afterwards possible adaptions will taken into account.
 - The repository will be updated respectively over time.
+
+Building on this development, the next steps aim is to identify regularities for skill matching in order to integrate them into the semantic network and enable case-related automatic assignment.
 
 ## ONTOLOGY MODEL
 

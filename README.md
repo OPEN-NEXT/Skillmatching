@@ -236,4 +236,26 @@ The query process for a platform owner works the same way as for contributors. T
   
 ## DESIGN NOTES
 
-Code to handle, instantiate, query and reason the ontology model is in development (in coordination with other project parties) and will be uploaded soon.
+The following diagrams visually facilitate the function of the main processes instantiation and querying. The instantiation process works differently for the skill instantiation and the project data instantiation. Both are shown below, for skill instantiation in Figure 9 and for the instantiation of the project data in Figure 10. The flow charts are provided in a sequential structure, indicated by the process arrows. At the same time the different classes used are displayed in a swim lane fashion, indicated by lines without arrows. Before starting the instantiation process, it is possible to change needed variables, shown in the manual input section of the flow charts. For the user flows of the project, all variables are set and the instantiation methods were executed resulting in a fully instantiated ontology, which is ready to be queried.<br>
+  
+The sequence for the instantiation process of the ontology in Figure 10 is shortened to a level of general understanding. To get a more elaborate insight of the explicit code function, the project repository holds a complete flow of all functions used, necessary to understand it. However, a detailed presentation of self-explanatory methods has been omitted (e.g. setter methods). Additionally, the methods are mostly described in the commented code as well.<br>
+|![Flowchart_Skill_instantiation](https://user-images.githubusercontent.com/59953831/128865178-fbd9a52b-6e62-404d-8454-caafcd99ca5a.png)|
+|:---:|
+|*Figure 9: Skill instantiation flow*|
+
+The skill instantiation is additionally presented shortly in writing. The CreateSkill.java class holds the main method and is responsible for the process flow.  <br>
+At the beginning an instance of the SkillReader.java class is created and the location for the JSON input file is given. This input file is read by a reader that now holds all information needed. Now the different pointers are set: <br>
+-	The pointer variable indicates which section of the input file is necessary for the instantiation <br>
+-	The skill target variable indicates which values are instantiated as individuals (that counts e. g. for 3d-printing) <br>
+-	The skill entity type variable shows how to classify a relating skill target variable (e. g. 3d-printing is an individual of the skill entity type class Process) <br>
+
+After setting all variables, the instantiation process begins (instantiateTargets()): <br>
+-	A pointer is created from the pointer string variable 
+-	If the pointer exists, the void skill ontology is loaded to be instantiated. 
+- The data array from the pointer variable is read 
+-	For each entry in the array a skill target and skill entity type are read and instantiated. A skill target variable is instantiated as individual of the class indicated by the relating skill entity type. 
+-	After instantiation of all skill targets, the instantiated ontology is saved. 
+  
+| ![Flowchart_create_instances_short](https://user-images.githubusercontent.com/59953831/128865985-b976712e-e765-40ea-9f78-34e004f972f7.png) |
+|:---:|
+|*Figure 10: Flowchart Instantiation*|  

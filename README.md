@@ -28,23 +28,27 @@ The current development aim was to create a network that is able to give possibi
 
 Building on this development, the next steps aim is to identify regularities for skill matching in order to integrate them into the semantic network and enable case-related automatic assignment.
 
-## ONTOLOGY MODEL
+## SEMANTIC NETWORK
+Based on the user flows a semantic network was developed. The net structure of the main classes of the semantic network for the application case are shown in Figure 6.
+| ![ontology_use_case_import](https://user-images.githubusercontent.com/59953831/128870214-5ceb8362-77d5-4299-9ca8-9be6e09207a8.png) |
+|:---:|
+| *Figure 6: Ontology classes for the user flow application* |
 
-For customization reasons, the ontology model consists of three ontologies referring to each other but are therefore replacable necessary:
+For customization reasons, the semantic consists of two ontologies referring to each other but are therefore replacable, if necessary. A third lightweight ontology imports the other two ontology to use the vocabulary for instantiation, hence also can be adapted easily.
 
-1. Open source hardware product development (OSHPD) ontology
+1. OSH project ontology (on_OSHPDP.owl)
    - This OWL ontology holds the architecture and semantic restrictions of the project landscape
    - Main classes for the skillmatching case are "Person", "Project", "Task" and "Skill", that are related through properties.
    - Property restrictions arise from the use cases before mentioned
    - The OSHPD ontology imports the skill ontology
 
-2. Skill ontology
+2. Skill ontology (on_skills.owl)
    - This OWL ontology is based on the [ESCO skill hierarchy](https://ec.europa.eu/esco/portal/skill)
    - The ESCO hierarchy was cropped to the topics of mechanics, electrics/electronics, furniture and cars/mobiliy.
    - Afterwards a reclustering was done for ease of use purposes
    - The skill ontology is still to be validated with OSH project data
 
-3. Instantiation file
+3. Instantiation file (on_Instances.owl)
    - This file holds needed project data of the individuals
    - The file refers to and uses class and property expressions from the other two ontologies.
 

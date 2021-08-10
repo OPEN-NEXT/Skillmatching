@@ -34,7 +34,7 @@ Based on the user flows a semantic network was developed. The net structure of t
 |:---:|
 | *Figure 6: Ontology classes for the user flow application* |
 
-For customization reasons, the semantic consists of two ontologies referring to each other but are therefore replacable, if necessary. A third lightweight ontology imports the other two ontology to use the vocabulary for instantiation, hence also can be adapted easily.
+For customization reasons, the semantic consists of two ontologies referring to each other but are therefore replacable, if necessary. A third lightweight ontology imports the other two ontologies to use the vocabulary for instantiation, hence also can be adapted easily.
 
 1. OSH project ontology (on_OSHPDP.owl)
    - This OWL ontology holds the architecture and semantic restrictions of the project landscape

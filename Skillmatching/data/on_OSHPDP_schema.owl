@@ -19,7 +19,6 @@
     <Prefix name="oshpd" IRI="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl"/>
     <Prefix name="skills" IRI="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl#"/>
     <Prefix name="dcterms" IRI="http://purl.org/dc/terms/"/>
-    <Prefix name="oldskill" IRI="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/ontology/skills.owl#"/>
     <Prefix name="wikifactory" IRI="https://wikifactory.com/api/graphgl/"/>
     <Import>https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl</Import>
     <Annotation>
@@ -34,9 +33,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <Literal>Open Source Hardware Product Development (OSHPDP) schema</Literal>
     </Annotation>
-    <Declaration>
-        <Class abbreviatedIRI="oldskill:Topic"/>
-    </Declaration>
     <Declaration>
         <Class IRI="#Author"/>
     </Declaration>
@@ -332,7 +328,7 @@
         <ObjectProperty IRI="#skill_of"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#skill_tag_task"/>
+        <ObjectProperty IRI="#skill_tags_task"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#stored_format"/>
@@ -356,7 +352,7 @@
         <ObjectProperty IRI="#task_of"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#task_tag_skill"/>
+        <ObjectProperty IRI="#task_tagged_by_skill"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#topic_of_project"/>
@@ -486,6 +482,9 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#User_name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="skills:SkillEntity_level"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#C"/>
@@ -1465,8 +1464,8 @@
         <ObjectProperty IRI="#task_has_review"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#skill_tag_task"/>
-        <ObjectProperty IRI="#task_tag_skill"/>
+        <ObjectProperty IRI="#skill_tags_task"/>
+        <ObjectProperty IRI="#task_tagged_by_skill"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#tagged_with"/>
@@ -1672,6 +1671,15 @@
         <Class IRI="#Member"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#needed_for"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="skills:skill_action"/>
+            </ObjectInverseOf>
+            <Class IRI="#User"/>
+        </ObjectMinCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#project_created_by"/>
         <Class IRI="#Project"/>
     </ObjectPropertyDomain>
@@ -1720,7 +1728,7 @@
         <Class IRI="#Review"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#skill_tag_task"/>
+        <ObjectProperty IRI="#skill_tags_task"/>
         <Class abbreviatedIRI="skills:Skill_Entity"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -1752,12 +1760,8 @@
         <Class IRI="#Task"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#task_tag_skill"/>
+        <ObjectProperty IRI="#task_tagged_by_skill"/>
         <Class IRI="#Task"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#topic_of_project"/>
-        <Class abbreviatedIRI="oldskill:Topic"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#topic_of_project"/>
@@ -1842,6 +1846,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#creator_of_task"/>
         <Class IRI="#Task"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#data_implies_skill"/>
+        <Class abbreviatedIRI="skills:Skill_Entity"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#described_by_documentation"/>
@@ -2008,7 +2016,7 @@
         <Class IRI="#User"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#skill_tag_task"/>
+        <ObjectProperty IRI="#skill_tags_task"/>
         <Class IRI="#Task"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -2040,7 +2048,7 @@
         <Class IRI="#Project"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#task_tag_skill"/>
+        <ObjectProperty IRI="#task_tagged_by_skill"/>
         <Class abbreviatedIRI="skills:Skill_Entity"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -2305,11 +2313,6 @@
         <AnnotationProperty IRI="#wif_user_2_cmap"/>
         <AbbreviatedIRI>owl:Thing</AbbreviatedIRI>
         <Literal>/data/profiles/result/edges/~/node/followingProjects/edges/~/node/id</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>oldskill:applyToolsForContentDevelopment</AbbreviatedIRI>
-        <Literal>using_digital_tools_for_collaboration_content_creation_and_problem_solving</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -3366,6 +3369,11 @@ In strict terms a documentation is a bundle of diverse documents, comparable to 
         <AnnotationProperty IRI="#wif_user_4_opmap"/>
         <AbbreviatedIRI>skills:skill_action</AbbreviatedIRI>
         <Literal>/data/profiles/result/edges/~/node/projects/edges/~/node/contributions/edges/~/node/user//profile/skills/~/name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/ontology/skills.owl#applyToolsForContentDevelopment</IRI>
+        <Literal>using_digital_tools_for_collaboration_content_creation_and_problem_solving</Literal>
     </AnnotationAssertion>
 </Ontology>
 

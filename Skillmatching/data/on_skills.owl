@@ -17,24 +17,24 @@
     <Prefix name="skills" IRI="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl#"/>
     <Prefix name="dcterms" IRI="http://purl.org/dc/terms/"/>
     <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <Literal>Skills Hierarchy</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:modified"/>
-        <Literal>2021-05-19</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:license"/>
-        <Literal>GNU General Public License v3.0</Literal>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal>Erik Paul Konietzko</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dcterms:created"/>
         <Literal>2021-04-28</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty abbreviatedIRI="dc:creator"/>
-        <Literal>Erik Paul Konietzko</Literal>
+        <AnnotationProperty abbreviatedIRI="dcterms:license"/>
+        <Literal>GNU General Public License v3.0</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dcterms:modified"/>
+        <Literal>2021-05-19</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal>Skills Hierarchy</Literal>
     </Annotation>
     <Declaration>
         <Class abbreviatedIRI="oshpd:User"/>
@@ -88,10 +88,19 @@
         <Class IRI="#mechanics"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#build_by"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#buildes"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#designed_by"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#designes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#distributed_by"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#distributes"/>
@@ -100,13 +109,22 @@
         <ObjectProperty IRI="#estimates_costs_for"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#installed_by"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#installs"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#legal_information"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#maintained_by"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#maintains"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#operated_by"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#operates"/>
@@ -124,10 +142,16 @@
         <ObjectProperty IRI="#skill_has_topic"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#taught_by"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#teaches_about"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#technical_writing"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#technical_written_by"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#topic_of_skill"/>
@@ -1286,12 +1310,24 @@
         <NamedIndividual IRI="#360"/>
     </ClassAssertion>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#build_by"/>
+        <ObjectProperty IRI="#possible_action"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#buildes"/>
         <ObjectProperty IRI="#skill_action"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#designed_by"/>
+        <ObjectProperty IRI="#possible_action"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#designes"/>
         <ObjectProperty IRI="#skill_action"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#distributed_by"/>
+        <ObjectProperty IRI="#possible_action"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#distributes"/>
@@ -1302,6 +1338,10 @@
         <ObjectProperty IRI="#skill_action"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#installed_by"/>
+        <ObjectProperty IRI="#possible_action"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#installs"/>
         <ObjectProperty IRI="#skill_action"/>
     </SubObjectPropertyOf>
@@ -1310,8 +1350,16 @@
         <ObjectProperty IRI="#skill_action"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maintained_by"/>
+        <ObjectProperty IRI="#possible_action"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#maintains"/>
         <ObjectProperty IRI="#skill_action"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#operated_by"/>
+        <ObjectProperty IRI="#possible_action"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#operates"/>
@@ -1322,6 +1370,10 @@
         <ObjectProperty IRI="#skill_action"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#taught_by"/>
+        <ObjectProperty IRI="#possible_action"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#teaches_about"/>
         <ObjectProperty IRI="#skill_action"/>
     </SubObjectPropertyOf>
@@ -1329,6 +1381,34 @@
         <ObjectProperty IRI="#technical_writing"/>
         <ObjectProperty IRI="#skill_action"/>
     </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#technical_written_by"/>
+        <ObjectProperty IRI="#possible_action"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#build_by"/>
+        <ObjectProperty IRI="#buildes"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#designed_by"/>
+        <ObjectProperty IRI="#designes"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#distributed_by"/>
+        <ObjectProperty IRI="#distributes"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#installed_by"/>
+        <ObjectProperty IRI="#installs"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#maintained_by"/>
+        <ObjectProperty IRI="#maintains"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#operated_by"/>
+        <ObjectProperty IRI="#operates"/>
+    </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#possible_action"/>
         <ObjectProperty IRI="#skill_action"/>
@@ -1337,9 +1417,25 @@
         <ObjectProperty IRI="#skill_has_topic"/>
         <ObjectProperty IRI="#topic_of_skill"/>
     </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#taught_by"/>
+        <ObjectProperty IRI="#teaches_about"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#technical_writing"/>
+        <ObjectProperty IRI="#technical_written_by"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#build_by"/>
+        <Class IRI="#Skill_Entity"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#buildes"/>
         <Class abbreviatedIRI="oshpd:User"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#designed_by"/>
+        <Class IRI="#Skill_Entity"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#designes"/>
@@ -1354,6 +1450,13 @@
         <Class abbreviatedIRI="oshpd:User"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#installed_by"/>
+        <ObjectUnionOf>
+            <Class IRI="#Machine"/>
+            <Class IRI="#Tool"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#installs"/>
         <Class abbreviatedIRI="oshpd:User"/>
     </ObjectPropertyDomain>
@@ -1362,8 +1465,22 @@
         <Class abbreviatedIRI="oshpd:User"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maintained_by"/>
+        <ObjectUnionOf>
+            <Class IRI="#Machine"/>
+            <Class IRI="#Tool"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#maintains"/>
         <Class abbreviatedIRI="oshpd:User"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#operated_by"/>
+        <ObjectUnionOf>
+            <Class IRI="#Machine"/>
+            <Class IRI="#Tool"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#operates"/>
@@ -1382,19 +1499,53 @@
         <Class abbreviatedIRI="oshpd:User"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#skill_has_topic"/>
+        <Class IRI="#Skill_Entity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#taught_by"/>
+        <ObjectUnionOf>
+            <Class IRI="#Event"/>
+            <Class IRI="#Machine"/>
+            <Class IRI="#Process"/>
+            <Class IRI="#Tool"/>
+            <Class IRI="#Topic"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#teaches_about"/>
         <Class abbreviatedIRI="oshpd:User"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#technical_writing"/>
+        <Class abbreviatedIRI="oshpd:User"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#technical_written_by"/>
+        <Class IRI="#Process"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#topic_of_skill"/>
         <Class IRI="#Topic"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#build_by"/>
+        <Class abbreviatedIRI="oshpd:User"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#designed_by"/>
+        <Class abbreviatedIRI="oshpd:User"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#designes"/>
         <ObjectUnionOf>
             <Class IRI="#Machine"/>
             <Class IRI="#Tool"/>
         </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#distributed_by"/>
+        <Class abbreviatedIRI="oshpd:User"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#estimates_costs_for"/>
@@ -1406,6 +1557,10 @@
         </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#installed_by"/>
+        <Class abbreviatedIRI="oshpd:User"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#installs"/>
         <ObjectUnionOf>
             <Class IRI="#Machine"/>
@@ -1413,11 +1568,26 @@
         </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#legal_information"/>
+        <ObjectUnionOf>
+            <Class IRI="#Event"/>
+            <Class IRI="#Topic"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maintained_by"/>
+        <Class abbreviatedIRI="oshpd:User"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#maintains"/>
         <ObjectUnionOf>
             <Class IRI="#Machine"/>
             <Class IRI="#Tool"/>
         </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#operated_by"/>
+        <Class abbreviatedIRI="oshpd:User"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#operates"/>
@@ -1439,8 +1609,8 @@
         <Class IRI="#Topic"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#teaches_about"/>
-        <Class IRI="#Skill_Entity"/>
+        <ObjectProperty IRI="#taught_by"/>
+        <Class abbreviatedIRI="oshpd:User"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#teaches_about"/>
@@ -1451,6 +1621,18 @@
             <Class IRI="#Tool"/>
             <Class IRI="#Topic"/>
         </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#technical_writing"/>
+        <Class IRI="#Process"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#technical_written_by"/>
+        <Class abbreviatedIRI="oshpd:User"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#topic_of_skill"/>
+        <Class IRI="#Skill_Entity"/>
     </ObjectPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -1577,6 +1759,5 @@ Sanskrit</Literal>
 
 
 
-<!-- Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/ -->
-
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 

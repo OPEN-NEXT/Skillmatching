@@ -19,17 +19,52 @@ public class QueryController {
 	private QueryExec qEx = new QueryExec();
 	
 	@GetMapping(value="/UserSkillQuery/")
-	public LinkedList<ArrayList<String>> ProjectUserInterestQuery() {
+	public LinkedList<ArrayList<String>> UserSkillQuery() {
 		return qEx.execQuery(querystrings.UserSkill());
 	}
+	
+	@GetMapping(value="/UserSkillQuery/{id}")
+	public LinkedList<ArrayList<String>> UserSkillQuery(@PathVariable String id) {
+		return qEx.execQuery(querystrings.UserSkill(id));
+	}
+	
+	
+	
+	@GetMapping(value="/UserSkillInterestQuery/")
+	public LinkedList<ArrayList<String>> UserSkillInterestQuery() {
+		return qEx.execQuery(querystrings.UserSkillInterest());
+	}
+	
 	@GetMapping(value="/UserSkillInterestQuery/{id}")
 	public LinkedList<ArrayList<String>> UserSkillInterestQuery(@PathVariable String id) {
 		return qEx.execQuery(querystrings.UserSkillInterest(id));
 	}
+	
+	
+	
+	@GetMapping(value="/ProjectUserSkillQuery/{id}")
+	public LinkedList<ArrayList<String>> ProjectUserSkillQuery(@PathVariable String id) {
+		return qEx.execQuery(querystrings.ProjectUserSkill(id));
+	}
+	
+	@GetMapping(value="/ProjectUserSkillQuery/")
+	public LinkedList<ArrayList<String>> ProjectUserSkillQuery() {
+		return qEx.execQuery(querystrings.ProjectUserSkill());
+	}
+	
+	
+	
+	
 	@GetMapping(value="/ProjectUserInterestQuery/{id}")
 	public LinkedList<ArrayList<String>> ProjectUserInterestQuery(@PathVariable String id) {
 		return qEx.execQuery(querystrings.ProjectUserInterest(id));
 	}
+	
+	@GetMapping(value="/ProjectUserInterestQuery/")
+	public LinkedList<ArrayList<String>> ProjectUserInterestQuery() {
+		return qEx.execQuery(querystrings.ProjectUserInterest());
+	}
+	
 	
 	@GetMapping(value="/test/{id}")
 	public String test(@PathVariable String id) {

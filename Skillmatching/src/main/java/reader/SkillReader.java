@@ -38,7 +38,7 @@ public class SkillReader {
 	private static String skills="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl";
 	/**JsonReader reader is used to read and parse information of json files.
 	 * @type JsonReader JsonReader is a custom class in the project.*/
-	private JsonReader reader;
+	private JsonReader reader; //careful: Not JSONReader.java
 	/**OntoModeler mod holds functions to handle the OWL ontology (get attributes, intsantiate classes/properties, load/save ontologies...).
 	 * It is used to load the void skill-architecture and to instantiate the skill infomation into it.*/
 	private OntoModeler mod = new OntoModeler();

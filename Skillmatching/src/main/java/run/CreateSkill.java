@@ -36,6 +36,13 @@ public class CreateSkill {
 		//
 		////////////////////////////////////////////////////////////////////////////////
 		
+		
+		//string variables used to search the JSON input
+		String skill_target="skill_target";
+		String skill_entity_type="entity_type";
+		String pointer="/skill_targets";
+		
+		
 		//The skill ontology is already build with classes and relations.
 		//The application case data for the skills to use as instances is provided in a separate json file.
 		
@@ -51,11 +58,11 @@ public class CreateSkill {
 			e.printStackTrace();
 		}
 		//create a pointer to the section in the json input file we are looking at. Here we want to go into the skill_target section
-		skully.setPointer("/skill_targets");
+		skully.setPointer(pointer);
 		//setting the keys for targets, entity_types, and skill_actions. 
 		//Here they have the same naming, but in other cases choose the equivalent keys
-		skully.setSkill_target("skill_target");
-		skully.setEntity_type("entity_type");
+		skully.setSkill_target(skill_target);
+		skully.setEntity_type(skill_entity_type);
 		//We do not have to set the skill_action, because they are used as objectproperties (relation between classes) in the ontology. The architecture is already build.
 		//Set ontologylocation of the void ontology to instantiate. 
 		skully.setOntoLocation(skill_ontolocation);

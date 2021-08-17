@@ -31,9 +31,6 @@ public class JSON2NTmapper {
 	
 	public void instantiateToNTClasses(ArrayList<ArrayList<String>> annotations, JSONReader reader) throws IOException {
 		for (int i=0; i<annotations.get(0).size();i++) {
-			//reader.setFile("https://github.com/konierik/O-N/raw/master/ontology/Family_input.json");//setting input filelocation
-			//reader.open(); //open reader 
-			//needed variables: class-iri to instantiate, class pointer to get the class objects from json file, ident pointer to get the ident-property out of the json objects
 			String individualpointer=annotations.get(0).get(i);
 			String rdfsType = annotations.get(1).get(i);
 			String classIRI= annotations.get(2).get(i);
@@ -60,15 +57,11 @@ public class JSON2NTmapper {
 			}catch(Exception e) {
 				e.printStackTrace();
 				}
-			//reader.close(); //closing reader: opening-closing is necessary since there requests per reader are limited
 		}
 	}
 	
 	public void instantiateToNTObjectproperties(ArrayList<ArrayList<String>> annotations, JSONReader reader) {
 		for (int i=0; i<annotations.get(0).size();i++) {
-			//reader.setFile("https://github.com/konierik/O-N/raw/master/ontology/Family_input.json");//setting input filelocation
-			//reader.open(); //open reader 
-			//needed variables: class-iri to instantiate, class pointer to get the class objects from json file, ident pointer to get the ident-property out of the json objects
 			String range=annotations.get(2).get(i);
 			String objectproperty = annotations.get(1).get(i);
 			String domain= annotations.get(0).get(i);
@@ -95,15 +88,11 @@ public class JSON2NTmapper {
 			}catch(Exception e) {
 				e.printStackTrace();
 				}
-			//reader.close(); //closing reader: opening-closing is necessary since there requests per reader are limited
 		}
 	}
 	
 	public void instantiateToNTDataproperties(ArrayList<ArrayList<String>> annotations, JSONReader reader) {
 		for (int i=0; i<annotations.get(0).size();i++) {
-			//reader.setFile("https://github.com/konierik/O-N/raw/master/ontology/Family_input.json");//setting input filelocation
-			//reader.open(); //open reader 
-			//needed variables: class-iri to instantiate, class pointer to get the class objects from json file, ident pointer to get the ident-property out of the json objects
 			String range=annotations.get(2).get(i);
 			String dataproperty = annotations.get(1).get(i);
 			String domain= annotations.get(0).get(i);
@@ -130,7 +119,6 @@ public class JSON2NTmapper {
 			}catch(Exception e) {
 				e.printStackTrace();
 				}
-			//reader.close(); //closing reader: opening-closing is necessary since there requests per reader are limited
 		}
 	}
 	/**This method removes characters from a string that are not allowed in nt format, e.g. the escape "\" */	

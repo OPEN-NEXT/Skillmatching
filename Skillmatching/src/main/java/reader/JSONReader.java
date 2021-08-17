@@ -57,16 +57,15 @@ public class JSONReader {
 	
 	
 	/**A method to parse a pointer with array markers ("~").
-	 * The mapping annoations from the ontology file are json pointers to where the information stands a relating json formatted file.
+	 * The mapping annotations from the ontology file are json pointers to where the information is to find in a relating json formatted file.
 	 * <p>Arrays from the json file are represented by a .../~/... in the annotation. This function recursively runs through 
-	 * all existing arrays that have the requested information, where every "~" is replaced by an index counter until the information is received.
+	 * all existing arrays in a json pointer that have the requested information, where every "~" is replaced by an index counter until the information is received.
 	 * @param input A string of the pointer where to get the information from. 
 	 * The pointer does not necessary have to include array markers (~), but due to the complex return type
 	 * it is recommended to use another function for getting a simple json value. 
 	 * @return The return type is a twofold ArrayList including strings. 
 	 * <br>Format:[[pointer to the key][value of the pointer key]]<br>
-	 * Although the method is recursive, the return type is designed for a pointer with two array markers max.
-	 * In the case of more markers the return type is not trivial and difficult to read. For this it would be best to add Arrays (outPartThree,..., etc.)*/
+	 * The return type was just tested suitable for a pointer with two array markers max.*/
 	public ArrayList<ArrayList<String>> parsePointer(String input){
 		//JsonStructure jsonStructure=null;// = reader.read();
 		JsonPointer jsonPointer = null;// = Json.createPointer(pointer);

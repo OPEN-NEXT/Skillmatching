@@ -12,6 +12,7 @@ import query.Queries;
 import query.QueryExec;
 
 public class RunQuery {
+	
 	public static void main (String[] args) throws IOException {
 		
 		QueryExec searchforme= new QueryExec();
@@ -19,12 +20,14 @@ public class RunQuery {
 		searchforme.openModel("OWL");
 		
 		Queries q= new Queries();
-		LinkedList<ArrayList<String>> result=searchforme.execQuery(q.UserSkillInterest());
+		LinkedList<ArrayList<String>> result=searchforme.execQuery(q.UserSkillInterest("uid113"));
 		
 		for (Iterator<ArrayList<String>> rs=result.iterator(); rs.hasNext();) {
 			ArrayList<String> resultat = rs.next();
 			resultat.forEach(System.out::println);
 		}
+		
+		System.out.println(q.UserSkillInterest("uid113"));
 			
 		}
 		

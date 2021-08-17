@@ -12,12 +12,12 @@ import query.Queries;
 import query.QueryExec;
 
 public class RunQuery {
-	
+	private static String ontology_iri="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_Instances.owl";
 	public static void main (String[] args) throws IOException {
 		
 		Queries q= new Queries();
 		QueryExec searchforme= new QueryExec();
-		searchforme.setIRI("https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_Instances.owl");
+		searchforme.setIRI(ontology_iri);
 		searchforme.openModel("OWL");
 		
 		LinkedList<ArrayList<String>> result=searchforme.execQuery(q.UserSkillInterest("uid113"));

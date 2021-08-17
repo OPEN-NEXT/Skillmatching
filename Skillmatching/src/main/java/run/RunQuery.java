@@ -15,12 +15,13 @@ public class RunQuery {
 	
 	public static void main (String[] args) throws IOException {
 		
+		Queries q= new Queries();
 		QueryExec searchforme= new QueryExec();
 		searchforme.setIRI("https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_Instances.owl");
 		searchforme.openModel("OWL");
 		
-		Queries q= new Queries();
 		LinkedList<ArrayList<String>> result=searchforme.execQuery(q.UserSkillInterest("uid113"));
+		
 		
 		for (Iterator<ArrayList<String>> rs=result.iterator(); rs.hasNext();) {
 			ArrayList<String> resultat = rs.next();

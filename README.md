@@ -248,6 +248,40 @@ The query process for a platform owner works the same way as for contributors. T
 
 ### Class diagram
   
+| ![class_diagram](https://user-images.githubusercontent.com/59953831/130364364-33fcb2c2-01c5-4019-8e77-7db70555afaf.png)|
+|:---:|
+|*Figure 8: Class diagram*| 
+  
+*OntoModeler.java* <br>
+The *OntoModeler.java* class is used to create, load and save, handle and serialize OWL ontologies and ontology files. The main functionality in the demonstrator is, besides loading and saving the ontologies, to read out the mappings of the OSH project ontology, get information about the relating concepts (e. g. get the domain class of an object property) and to instantiate information from the JSON input files (this happens mainly in case of skill data instantiation). Also it is used for reasoning during the instantiation of the project data and saving the instances ontology. <br>
+
+*SkillReader.java* <br>
+This class provides functionality to read skill information from the provided JSON input file (*skills_schema.json*). It uses a JSON-pointer to specify the location of desired data in the JSON file and creates a JSON array. Defined key attributes are used to read out values from this array. Afterwards, the predefined skill schema (*on_skills_void.owl*) is loaded with the help of the OntoModeler.java class and the resulting values are instantiated as OWL ontology (*on_skills.owl*) and saved. <br>
+
+*CreateSkill.java* <br>
+This class holds the *main()* method for the skill instantiation process and coordinates it by passing parameters and calling functions of the *SkillReader.java* and *OntoModeler.java* classes. The parameters required for skill instantiation are initiated here in the beginning. <br>
+
+*JSONReader.java* <br>
+The *JSONReader.java* class holds functionality to extract data from the JSON formatted inputs over JSON pointers. If pointers contain array markers, there is functionality to parse those arrays into its entries and coordinates the connection of value information to its respective entry in the array. <br>
+  
+*JSON2NTmapper.java* <br>
+This class uses the results of JSON data extraction from the combination of *JSONReader.java* and *OntoModeler.java* methods and converts them into a NT-file. N-Triples  (NT) is a plain text format for RDF graphs and serves for the instantiation as intermediate format from JSON to OWL translation. <br>
+  
+*NTParser.java* <br>
+This class loads an NT-file (in the instantiation case provided by methods from *JSON2NTmapper.java* class) and provides a methods to enrich the file, e.g. with a statement to import the vocabulary of another ontology or setting different prefixes to the ontology. Also there are functions to convert the NT-file to another RDF based format. <br>
+  
+*CreateInstances.java* <br>
+This class holds the *main()* method for the project data instantiation. It provides all input files and locations. Connecting the *OntoModeler.java*, *JSONReader.java*, *JSON2NTmapper.java* and *NTParser.java* classes, it coordinates the calling of methods and handover of parameters and results of methods. <br>
+  
+*Queries.java* <br>
+This class provides methods to return SPARQL query strings based on the described user flows. <br>
+  
+*QueryExec.java* <br>
+The *QueryExec.java* class connects to an ontology and executes queries on it. In case of the demonstrators, the instantiated project data (*on_Instances.owl*) is queried with the query strings provided by the *Queries.java* class. <br>
+  
+*RunQuery.java* <br>
+This class holds the *main()* method for the querying process and uses SPARQL queries from the Queries.java class passing it to the *QueryExec.java* class.
+
   
 ### Flow charts
 

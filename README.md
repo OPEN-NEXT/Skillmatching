@@ -55,7 +55,7 @@ For customization reasons, the semantic consists of two ontologies referring to 
 
 ## INSTRUCTIONS TO USE
 
-In this section classes from the code are mentioned and code lines are reffered to. To better understand the usage section it is advised here, to study the class diagram and the descriptions of the classes functions from the DESIGN NOTE section of the repository. <br>
+**In this section classes from the code are mentioned and code lines are reffered to. To better understand the usage section it is advised here, to study the class diagram and the descriptions of the classes functions from the DESIGN NOTE section of the repository.** <br><br>
 The demonstrator has two the main functions instantiation and querying. Each of their usages are described below:<br>
 
   **i.	Instantiation** <br><p>

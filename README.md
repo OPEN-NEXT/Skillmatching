@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/374925324.svg)](https://zenodo.org/badge/latestdoi/374925324)
+[![GitHub license](https://img.shields.io/github/license/OPEN-NEXT/WP3_Skillmatching.svg?style=flat)](./LICENSE)
+
 # Semantic skill matching in Open Source Hardware (OSH) Project Communities
 
 - This repository handles the third workpackage (WP3) of the [OPEN!NEXT project](https://opennext.eu/) to serve possible solutions for Open Source Hardware Commmunity needs.
@@ -349,4 +352,3 @@ The last section focuses on the steps from *“Start OntoModeler.java”* to *�
   
   The query execution flow is shown in Figure 11 and starts with the *RunQueries.java*. In this class the ontology IRI to be loaded and queried is provided as string variable. After initiation of a *Queries.java* and a *QueryExec.java* object, the ontology IRI is set for the query execution and the ontology model is loaded. The *Queries.java* class provides methods to return query strings for the execution on the ontology. In Figure 11 the example of the *UserSkillInterest()* query generation method is shown in the process. This can be replaced with other query generation methods from the *Queries.java* class. The generated query string is handed over to the query execution method of the *QueryExec.java* class. To execute the query a Query and a QueryExecution type variable are created and the result set from the query is generated. The result set is run through and the results for every variable is saved into a result list. The number of variables depends on the number of variables in SELECT clause of the query. At the end the result list is post-processed to match a table like layout.
   
-

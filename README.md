@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/374925324.svg)](https://zenodo.org/badge/latestdoi/374925324)
+[![DOI](https://zenodo.org/badge/391876438.svg)](https://zenodo.org/badge/latestdoi/391876438)
 [![GitHub license](https://img.shields.io/github/license/OPEN-NEXT/WP3_Skillmatching.svg?style=flat)](./LICENSE)
 
 # Semantic skill matching in Open Source Hardware (OSH) Project Communities

@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/391876438.svg)](https://zenodo.org/badge/latestdoi/391876438)
+[![GitHub license](https://img.shields.io/github/license/OPEN-NEXT/WP3_Skillmatching.svg?style=flat)](./LICENSE)
+
 # Semantic skill matching in Open Source Hardware (OSH) Project Communities
 
 - This repository handles the third workpackage (WP3) of the [OPEN!NEXT project](https://opennext.eu/) to serve possible solutions for Open Source Hardware Commmunity needs.
@@ -55,6 +58,7 @@ For customization reasons, the semantic consists of two ontologies referring to 
 
 ## INSTRUCTIONS TO USE
 
+**In this section classes from the code are mentioned and code lines are reffered to. To better understand the usage section it is advised here, to study the class diagram and the descriptions of the classes functions from the DESIGN NOTE section of the repository.** <br><br>
 The demonstrator has two the main functions instantiation and querying. Each of their usages are described below:<br>
 
   **i.	Instantiation** <br><p>
@@ -243,16 +247,60 @@ The query process for a platform owner works the same way as for contributors. T
 |*Figure 51: Exemplary query results*|
   
 ## DESIGN NOTES
+  
+  The following section gives insights how the code is constituted and how the methods are handled to instantiate and query the ontology.
+
+### Class diagram
+  
+| ![class_diagram](https://user-images.githubusercontent.com/59953831/130364364-33fcb2c2-01c5-4019-8e77-7db70555afaf.png)|
+|:---:|
+|*Figure 8: Class diagram*| 
+  
+*OntoModeler.java* <br>
+The *OntoModeler.java* class is used to create, load and save, handle and serialize OWL ontologies and ontology files. The main functionality in the demonstrator is, besides loading and saving the ontologies, to read out the mappings of the OSH project ontology, get information about the relating concepts (e. g. get the domain class of an object property) and to instantiate information from the JSON input files (this happens mainly in case of skill data instantiation). Also it is used for reasoning during the instantiation of the project data and saving the instances ontology. <br>
+
+*SkillReader.java* <br>
+This class provides functionality to read skill information from the provided JSON input file (*skills_schema.json*). It uses a JSON-pointer to specify the location of desired data in the JSON file and creates a JSON array. Defined key attributes are used to read out values from this array. Afterwards, the predefined skill schema (*on_skills_void.owl*) is loaded with the help of the OntoModeler.java class and the resulting values are instantiated as OWL ontology (*on_skills.owl*) and saved. <br>
+
+*CreateSkill.java* <br>
+This class holds the *main()* method for the skill instantiation process and coordinates it by passing parameters and calling functions of the *SkillReader.java* and *OntoModeler.java* classes. The parameters required for skill instantiation are initiated here in the beginning. <br>
+
+*JSONReader.java* <br>
+The *JSONReader.java* class holds functionality to extract data from the JSON formatted inputs over JSON pointers. If pointers contain array markers, there is functionality to parse those arrays into its entries and coordinates the connection of value information to its respective entry in the array. <br>
+  
+*JSON2NTmapper.java* <br>
+This class uses the results of JSON data extraction from the combination of *JSONReader.java* and *OntoModeler.java* methods and converts them into a NT-file. N-Triples  (NT) is a plain text format for RDF graphs and serves for the instantiation as intermediate format from JSON to OWL translation. <br>
+  
+*NTParser.java* <br>
+This class loads an NT-file (in the instantiation case provided by methods from *JSON2NTmapper.java* class) and provides a methods to enrich the file, e.g. with a statement to import the vocabulary of another ontology or setting different prefixes to the ontology. Also there are functions to convert the NT-file to another RDF based format. <br>
+  
+*CreateInstances.java* <br>
+This class holds the *main()* method for the project data instantiation. It provides all input files and locations. Connecting the *OntoModeler.java*, *JSONReader.java*, *JSON2NTmapper.java* and *NTParser.java* classes, it coordinates the calling of methods and handover of parameters and results of methods. <br>
+  
+*Queries.java* <br>
+This class provides methods to return SPARQL query strings based on the described user flows. <br>
+  
+*QueryExec.java* <br>
+The *QueryExec.java* class connects to an ontology and executes queries on it. In case of the demonstrators, the instantiated project data (*on_Instances.owl*) is queried with the query strings provided by the *Queries.java* class. <br>
+  
+*RunQuery.java* <br>
+This class holds the *main()* method for the querying process and uses SPARQL queries from the Queries.java class passing it to the *QueryExec.java* class.
+
+  
+### Flow charts
 
 The following diagrams visually facilitate the function of the main processes instantiation and querying. The instantiation process works differently for the skill instantiation and the project data instantiation. Both are shown below, for skill instantiation in Figure 9 and for the instantiation of the project data in Figure 10. The flow charts are provided in a sequential structure, indicated by the process arrows. At the same time the different classes used are displayed in a swim lane fashion, indicated by lines without arrows. Before starting the instantiation process, it is possible to change needed variables, shown in the manual input section of the flow charts. For the user flows of the project, all variables are set and the instantiation methods were executed resulting in a fully instantiated ontology, which is ready to be queried.<br>
   
 The sequence for the instantiation process of the ontology in Figure 10 is shortened to a level of general understanding. To get a more elaborate insight of the explicit code function, the repository also provides a [complete flowchart](https://github.com/OPEN-NEXT/WP3_Skillmatching/blob/main/files/Flowchart_create_instances_complete.png) of all functions used, necessary to understand it. However, a detailed presentation of self-explanatory methods has been omitted (e.g. setter methods). Additionally, the methods are mostly described in the commented code as well.<br>
+
+  #### Skill instantiation flow
+  
 |![Flowchart_Skill_instantiation](https://user-images.githubusercontent.com/59953831/128865178-fbd9a52b-6e62-404d-8454-caafcd99ca5a.png)|
 |:---:|
 |*Figure 9: Skill instantiation flow*|
 
-The skill instantiation is additionally presented shortly in writing. The CreateSkill.java class holds the main method and is responsible for the process flow.  <br>
-At the beginning an instance of the SkillReader.java class is created and the location for the JSON input file is given. This input file is read by a reader that now holds all information needed. Now the different pointers are set: <br>
+The skill instantiation is additionally presented shortly in writing. The *CreateSkill.java* class holds the main method and is responsible for the process flow.  <br>
+At the beginning an instance of the *SkillReader.java* class is created and the location for the JSON input file is given. This input file is read by a reader that now holds all information needed. Now the different pointers are set: <br>
 -	The pointer variable indicates which section of the input file is necessary for the instantiation <br>
 -	The skill target variable indicates which values are instantiated as individuals (that counts e. g. for 3d-printing) <br>
 -	The skill entity type variable shows how to classify a relating skill target variable (e. g. 3d-printing is an individual of the skill entity type class Process) <br>
@@ -264,6 +312,43 @@ After setting all variables, the instantiation process begins (instantiateTarget
 -	For each entry in the array a skill target and skill entity type are read and instantiated. A skill target variable is instantiated as individual of the class indicated by the relating skill entity type. 
 -	After instantiation of all skill targets, the instantiated ontology is saved. 
   
+  #### Project data instantiation flow
+  
 | ![Flowchart_create_instances_short](https://user-images.githubusercontent.com/59953831/128865985-b976712e-e765-40ea-9f78-34e004f972f7.png) |
 |:---:|
 |*Figure 10: Flowchart Instantiation*|  
+  
+The instantiation process will be shortly described divided into four main parts. 
+  
+1.	Getting the mapping annotation properties from the OSH project ontology <br>
+  
+This parts relates in the flow chart to the section between the steps *“Start CreateInstance.java”* and *“END OntoModeler.java”*. After setting the manual inputs, the instantiation process starts with the initialization of an *OntoModeler.java* object in the *CreateInstances.java* class. After that the following short steps take place: <br>
+-	The IRI of the mapping ontology is set and the ontology file is loaded
+-	The mapping ontology is merged with the ontology find behind the skill ontology IRI (here the skill ontology)
+-	The mapping annotations are set, which should be searched in the following process. (*setClassmapping()*, *setOPmapping()* and *setDPmapping()*) <br>
+  
+After setting what mapping annotations should be searched, the mapping annotations of every class, object property and data property are read out of the ontology and the results are saved into lists. Each list contains of three arrays and is arranged as follows for each of the subsequent cases:
+-	Class mapping annotations: The first array contains all mapping annotation pointers for the individuals to be instantiated. The second array simply contains an *“rdf:type”* statement and the third array holds the respective class IRI of the instances class.
+-	Object property annotations: The first array contains the pointers of the domain class from the respective object properties, which´s IRIs are stored in the second array. The third array stores the object property annotation pointers of the range classes from the respective object properties.
+-	Data property annotations: The first array contains the pointers for the individuals to be instantiated. The second array contains the data property IRIs and the third array contains the respective data property annotation pointers. 
+
+2.	Creating an NT file from the mapping annotation pointers <br>
+  
+The explanations in this part refer to the steps from *“Start JSONReader.java” to “END JSON2NTMapper.java”*. After the initialization of a *JSONReader.java* object, the file location of the JSON inputs is set and the file is opened. A *JSON2NTmapper.java* object is created and the mapping ontology IRI, to load the existing OSH project ontology, and the instance IRI, in which the new instances are to be stored, are set. With the *JSONReader.java* object annotation pointers from the lists of class- , object property- and data property annotations created in the first step are replaced with their corresponding values. With the values and the IRIs from the ontologies, NT statements are created and saved as NT file.
+  
+3.	Converting the NT file into an RDF format <br>
+  
+This section concentrates on steps between *“Start NTParser.java”* and *“END NTParser.java”*. When created, the *NTParser.java* creates an ontology model that will be added with the further described information. Necessary prefixes are added to the ontology model with the *setPrefix()* method. The *readNTModel()* method reads the NT file with instances information from its location that was handed over to the constructor at creation. After setting the ontology IRI, adding necessary statements to import concepts and vocabulary from other ontologies and setting the output file location, the ontology model is saved in OWL format.
+  
+4)	Reasoning over the ontology and assert inferences <br>
+  
+The last section focuses on the steps from *“Start OntoModeler.java”* to *“END OntoModeler.java”*. After initializing an *OntoModeler.java* object, the instance ontology is loaded from its IRI. The *assertInferences()* method creates a reasoner, that precomputes inferences, creating new axioms for the ontology. A loop runs through the set of new axiom, adds it to the ontology and saves it.
+
+  #### Query execution flow
+  
+| ![Flowchart_query](https://user-images.githubusercontent.com/59953831/130364272-3ccb3ce2-e212-4f3e-847f-9f10c86b1172.png) |
+|:---:|
+|*Figure 11: Flowchart Query execution*| 
+  
+  The query execution flow is shown in Figure 11 and starts with the *RunQueries.java*. In this class the ontology IRI to be loaded and queried is provided as string variable. After initiation of a *Queries.java* and a *QueryExec.java* object, the ontology IRI is set for the query execution and the ontology model is loaded. The *Queries.java* class provides methods to return query strings for the execution on the ontology. In Figure 11 the example of the *UserSkillInterest()* query generation method is shown in the process. This can be replaced with other query generation methods from the *Queries.java* class. The generated query string is handed over to the query execution method of the *QueryExec.java* class. To execute the query a *Query* and a *QueryExecution* type variable are created and the result set from the query is generated. The result set is run through and the results for every variable is saved into a result list. The number of variables depends on the number of variables in SELECT clause of the query. At the end the result list is post-processed to match a table like layout.
+  

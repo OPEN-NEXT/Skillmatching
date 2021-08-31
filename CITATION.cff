@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Konietzko"
+  given-names: "Erik Paul"
+title: "WP3_Skillmatching"
+version: 1.0.0
+doi: 
+date-released: 2021-08-25
+url: "https://github.com/OPEN-NEXT/WP3_Skillmatching"

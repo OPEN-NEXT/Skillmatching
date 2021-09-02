@@ -2789,7 +2789,6 @@ Testing</rdfs:comment>
             <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Release"/>
             <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Requirement"/>
             <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Requirement_definition_process_phase"/>
-            <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Tag"/>
             <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task"/>
             <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#User"/>
             <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl#Skill_Entity"/>

@@ -194,7 +194,7 @@ public class CreateInstances {
 		ntparse.readNTModel();
 		ntparse.setOntologyIRI(instanceIRI);
 		ntparse.addImport(mapping.getIRIString());
-		ntparse.addImport(skillIRI);
+		//ntparse.addImport(skillIRI);
 		ntparse.setOutput(directory+"on_Instances.owl");
 		ntparse.parseNT(instanceIRI,"RDF/XML");
 		
@@ -202,9 +202,8 @@ public class CreateInstances {
 		//infer asserted axioms of the new ontology:
 		OntoModeler instance= new OntoModeler();
 		instance.setIRI(instanceIRI);
-		instance.setDocIRI(directory+"on_Instances.owl");
 		try {
-			instance.loadOnto(instance.getDocIRI().toString());
+			instance.loadOnto();
 			//instance.mergeOntology(skillIRI);
 			//instance.mergeOntology(mapping.getIRIString());
 			instance.assertInferences();
@@ -217,7 +216,7 @@ public class CreateInstances {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} catch (OWLOntologyCreationException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 

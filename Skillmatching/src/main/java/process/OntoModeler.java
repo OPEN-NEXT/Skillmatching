@@ -31,6 +31,7 @@ import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyIRIMapper;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.OWLPropertyAssertionAxiom;
@@ -99,6 +100,7 @@ public class OntoModeler {
 		 onto_man = OntManagers.createManager();
 	     onto_df = onto_man.getOWLDataFactory();
 	     onto = onto_man.loadOntologyFromOntologyDocument(new File(FileLocationAndName));
+	     
 	     iri =onto_man.getOntologyDocumentIRI(onto);
 	     IRIstring=iri.toString();
 	     System.out.println("Loaded ontology iri: "+iri);

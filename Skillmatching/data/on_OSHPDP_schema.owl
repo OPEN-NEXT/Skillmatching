@@ -357,6 +357,7 @@
 
     <owl:ObjectProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_predecessor">
         <owl:inverseOf rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_successor"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_phase"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_phase"/>
     </owl:ObjectProperty>
@@ -366,8 +367,28 @@
     <!-- https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_successor -->
 
     <owl:ObjectProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_successor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_phase"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_phase"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase_predecessor -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase_predecessor">
+        <owl:inverseOf rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase_successor"/>
+        <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase"/>
+        <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase_successor -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase_successor">
+        <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase"/>
+        <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase"/>
     </owl:ObjectProperty>
     
 
@@ -480,7 +501,6 @@
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Data_format"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl#Skill_Entity"/>
         <rdfs:comment>&quot;implies&quot; may be too general for this special implication</rdfs:comment>
-        <rdfs:comment>Inverse needed?</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -519,10 +539,6 @@
         <owl:inverseOf rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#product_documented_in"/>
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Document"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Product_artefact"/>
-        <rdfs:comment>Since the Product_artefact is an abstract idea of the project members and contributors, naming can here be difficult.
-
-Check if to rename, maybe &quot;describes&quot; is sufficent.</rdfs:comment>
-        <rdfs:comment>a documentation lists/encapsulates the Product_artefact it is intended to represent.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -671,7 +687,6 @@ Check if to rename, maybe &quot;describes&quot; is sufficent.</rdfs:comment>
     <owl:ObjectProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#in_PLC_phase">
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Product_artefact"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#PLC_phase"/>
-        <rdfs:comment>Do I need an inverse for my purposes?</rdfs:comment>
         <rdfs:comment>assigns a Product_artefact to a PLC_phase it is currently in.</rdfs:comment>
     </owl:ObjectProperty>
     
@@ -682,7 +697,6 @@ Check if to rename, maybe &quot;describes&quot; is sufficent.</rdfs:comment>
     <owl:ObjectProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#in_contribution_phase">
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Contribution"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Contribution_process_phase"/>
-        <rdfs:comment>Should this one semantically have an inverse?</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -701,7 +715,6 @@ Check if to rename, maybe &quot;describes&quot; is sufficent.</rdfs:comment>
     <owl:ObjectProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#in_requirement_definition_process_phase">
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Requirement"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Requirement_definition_process_phase"/>
-        <rdfs:comment>inverse necessary?</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -798,7 +811,6 @@ Check if to rename, maybe &quot;describes&quot; is sufficent.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#documented_in"/>
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Product_artefact"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Document"/>
-        <rdfs:comment>see inverse property for description</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -906,7 +918,6 @@ Check if to rename, maybe &quot;describes&quot; is sufficent.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#reviews"/>
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Review_document"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Contribution"/>
-        <rdfs:comment>Inverse needed?</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -915,7 +926,6 @@ Check if to rename, maybe &quot;describes&quot; is sufficent.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#skill_of">
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#User"/>
-        <rdfs:comment>Is this semantically correct?</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -936,7 +946,6 @@ Check if to rename, maybe &quot;describes&quot; is sufficent.</rdfs:comment>
         <owl:inverseOf rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#used_for_document"/>
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Document"/>
         <rdfs:range rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Data_format"/>
-        <rdfs:comment>Inverse needed?</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -1240,18 +1249,6 @@ Check if to rename, maybe &quot;describes&quot; is sufficent.</rdfs:comment>
     <owl:DatatypeProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Project_description">
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Project"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>[OPEN! Deliverable 2.1 - OSPD process map]
-
-&quot;The typology analysis identified three heterogeneous types of projects: Public innovators, involuntary isolated innovators and collaborative innovators.&quot;
-
-Public innovators: low decentralisation of contributions and low pursued level of collaborative development.
-&quot;From their approach they adhere to openness only in terms of output to aim for transparency and replicability.&quot; 
-
-Collaborative innocators:  high decentralisation and high pursued level of collaborative development.
-&quot;This derived type included the observed community projects as well as the ideological challenge projects, which provide a thorough characterisation. The common ground for this type is the clear intentions and extensive efforts put towards building up and aligning OSH communities around a collaborative process setup.&quot;
-
-involuntairly isolated innovators: low decentralisation and high pursued level of collaborative development
-&quot;They were expressing the intention to open their process for people to participate in development activities (accessibility), yet they have not managed to create the needed momentum for co-design. These projects may already provide accessibility to some extent but people are not making use of it. Therefore they may be considered as involuntary isolated innovators. There may be various reasons for this situation to occur, such as a lack of available persons with methodological skills to create necessary momentum for collaborative development.&quot;</rdfs:comment>
         <wif_issue_1_dpmap>/data/issues/result/edges/~/node/project/description</wif_issue_1_dpmap>
         <wif_project_1_dpmap>/data/projects/result/edges/~/node/description</wif_project_1_dpmap>
         <wif_user_2_dpmap>/data/profiles/result/edges/~/node/followingProjects/edges/~/node/description</wif_user_2_dpmap>
@@ -1318,7 +1315,8 @@ involuntairly isolated innovators: low decentralisation and high pursued level o
                 </owl:unionOf>
             </rdfs:Datatype>
         </rdfs:range>
-        <rdfs:comment>source DIN SPEC 3105</rdfs:comment>
+        <rdfs:comment>from 
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -1328,7 +1326,8 @@ involuntairly isolated innovators: low decentralisation and high pursued level o
     <owl:DatatypeProperty rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Release_documentation_version">
         <rdfs:domain rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Release"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>source DIN SPEC 3105</rdfs:comment>
+        <rdfs:comment>from
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -1345,7 +1344,8 @@ involuntairly isolated innovators: low decentralisation and high pursued level o
                 </owl:unionOf>
             </rdfs:Datatype>
         </rdfs:range>
-        <rdfs:comment>source DIN SPEC 3105</rdfs:comment>
+        <rdfs:comment>from
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -1375,7 +1375,9 @@ involuntairly isolated innovators: low decentralisation and high pursued level o
 1. Approval[...]
 2. Approval subject to revision[...]&quot;
 
-(DIN SPEC 3105-2, 5.2.2)</rdfs:comment>
+(DIN SPEC 3105-2, 5.2.2)
+
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -1567,9 +1569,9 @@ involuntairly isolated innovators: low decentralisation and high pursued level o
                 </owl:oneOf>
             </rdfs:Datatype>
         </rdfs:range>
-        <rdfs:comment>OPEN! Deliverable 2.1 OSPD Process map
+        <rdfs:comment>&quot;In all three cases set tasks are technical, organisational (within the meaning of coordination) as well as administrative, which are all treated in the same way.&quot;
 
-&quot;In all three cases set tasks are technical, organisational (within the meaning of coordination) as well as administrative, which are all treated in the same way.&quot;
+Mies, R. (2021) OPEN!_D2.1_Open Source Product Development Process Models, Zenodo [online] https://zenodo.org/record/5341253#.YS3hSOdCTRY.
 
 Interpretation:
 This leads to the ranges of the property. Since OS does not claim to be complete an additional range &quot;other&quot; is included.</rdfs:comment>
@@ -1719,7 +1721,7 @@ This leads to the ranges of the property. Since OS does not claim to be complete
     <owl:Class rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#CAD_format">
         <rdfs:subClassOf rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Data_format"/>
         <rdfs:comment>class from 
-Bonvoisin et al. (2018). &quot;How participative is open source hardware? Insights from online repository mining&quot;</rdfs:comment>
+Bonvoisin, J., Buchert, T., Preidel, M. and Stark, R.G. (2018a) ‘How participative is open source hardware? Insights from online repository mining’, Design Science, Vol. 4.</rdfs:comment>
     </owl:Class>
     
 
@@ -1822,7 +1824,7 @@ Bonvoisin et al. (2018). &quot;How participative is open source hardware? Insigh
     <owl:Class rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Documentation_file">
         <rdfs:subClassOf rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Data_format"/>
         <rdfs:comment>cathegory from 
-Bonvoisin et al. (2018). &quot;How participative is open source hardware? Insights from online repository mining&quot;</rdfs:comment>
+Bonvoisin, J., Buchert, T., Preidel, M. and Stark, R.G. (2018a) ‘How participative is open source hardware? Insights from online repository mining’, Design Science, Vol. 4.</rdfs:comment>
     </owl:Class>
     
 
@@ -1937,6 +1939,8 @@ Bonvoisin et al. (2018). &quot;How participative is open source hardware? Insigh
     <owl:Class rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Product_artefact">
         <rdfs:comment>&quot;Concepts of physical artefacts do not qualify as pieces of hardware as long as they hace not been realized at least once.&quot; (DIN SPEC 3105-2, 3.1)
 
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.
+
 Conclusion:
 All concepts handled in the ontology are not physical. Although some of them (e.g. Documentation or Product_artefact) might refer to physical artefacts, the representation of them in the ontology can always be just digital. Therefore this class is not named as any physical artefact would be, e.g. piece of hardware.
 
@@ -1993,7 +1997,9 @@ All concepts handled in the ontology are not physical. Although some of them (e.
         <rdfs:comment>&quot;clearly identifiable version of the documentation (3.8) that can be accessed in its entirety even after further modifications brought to the documentation (3.8)&quot; (DIN SPEC 3105-2, 3.9)</rdfs:comment>
         <rdfs:comment>also &quot;documentation release&quot; (DIN SPEC 3105-2, 3.9)
 
-Rename?</rdfs:comment>
+Rename?
+
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
     </owl:Class>
     
 
@@ -2024,10 +2030,14 @@ Rename?</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Document"/>
         <rdfs:comment>&quot;A review is a digital document.&quot; 
 
-(DIN SPEC 3105-2, 3.3)</rdfs:comment>
+(DIN SPEC 3105-2, 3.3)
+
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
         <rdfs:comment>&quot;consideration of the suitability, adequacy and effectiveness of selection and determination activities, and the results of these activities, with regard to fulfilment of specified requirements (DIN EN ISO-IEC 17000:2019-05, 2.2.1) by an object of conformity assessment (DIN EN ISO-IEC 17000:2019-05,2.1.2).&quot;
 
-(DIN SPEC 3105-2, 3.3)</rdfs:comment>
+(DIN SPEC 3105-2, 3.3)
+
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
     </owl:Class>
     
 
@@ -2707,18 +2717,21 @@ Rename?</rdfs:comment>
     <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#End_of_life">
         <rdfs:comment>(DIN SPEC 3105-2, 3.10)
 
-For completeness, I am but looking at the PDP till the realisation of the product.</rdfs:comment>
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Operation_and_maintenance">
-        <rdfs:comment>(DIN SPEC 3105-2, 3.10)
-
-For completeness, I am but looking at the PDP till the realisation of the product.</rdfs:comment>
         <rdfs:comment>alternative names:
 Using and maintenance
 Using</rdfs:comment>
+        <rdfs:comment>(DIN SPEC 3105-2, 3.10)
+
+
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Production">
-        <rdfs:comment>&quot;Realization&quot; in (DIN SPEC 3105-2, 3.10)</rdfs:comment>
+        <rdfs:comment>&quot;Realization&quot; in (DIN SPEC 3105-2, 3.10)
+
+DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: Anforderungen an die technische Dokumentation; Text Englisch, Berlin, Beuth Verlag GmbH.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Validation">
         <rdfs:comment>alternative name:

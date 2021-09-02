@@ -133,43 +133,13 @@
         <ObjectProperty IRI="#topic_of_skill"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#alternativeLabels"/>
+        <DataProperty IRI="#SkillEntity_id"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#conceptType"/>
+        <DataProperty IRI="#SkillEntity_level"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#conceptUri"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#definition"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#description"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hiddenLabels"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#inScheme"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#modifiedDate"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#preferredLabel"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#reuseLevel"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#scopeNote"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#skillType"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#status"/>
+        <DataProperty IRI="#SkillEntity_name"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
@@ -270,6 +240,10 @@
         <Class IRI="#mechanics"/>
         <Class IRI="#Topic"/>
     </SubClassOf>
+    <DisjointClasses>
+        <Class abbreviatedIRI="oshpd:User"/>
+        <Class IRI="#Skill_Entity"/>
+    </DisjointClasses>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#buildes"/>
         <ObjectProperty IRI="#skill_action"/>
@@ -437,6 +411,33 @@
             <Class IRI="#Topic"/>
         </ObjectUnionOf>
     </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#SkillEntity_id"/>
+        <Class IRI="#Skill_Entity"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#SkillEntity_level"/>
+        <Class IRI="#Skill_Entity"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#SkillEntity_name"/>
+        <Class IRI="#Skill_Entity"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#SkillEntity_id"/>
+        <DataUnionOf>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataUnionOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#SkillEntity_level"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#SkillEntity_name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Event</IRI>

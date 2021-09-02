@@ -202,19 +202,25 @@ public class CreateInstances {
 		//infer asserted axioms of the new ontology:
 		OntoModeler instance= new OntoModeler();
 		instance.setIRI(instanceIRI);
-		instance.loadOnto();
-		//instance.mergeOntology(skillIRI);
-		//instance.mergeOntology(mapping.getIRIString());
-		instance.assertInferences();
+		instance.setDocIRI(directory+"on_Instances.owl");
 		try {
-			instance.saveOntology(directory+"on_Instances.owl");
-		} catch (OWLOntologyStorageException e) {
-			e.printStackTrace();
+			instance.loadOnto(instance.getDocIRI().toString());
+			//instance.mergeOntology(skillIRI);
+			//instance.mergeOntology(mapping.getIRIString());
+			instance.assertInferences();
+			try {
+				instance.saveOntology(directory+"on_Instances.owl");
+			} catch (OWLOntologyStorageException e) {
+				e.printStackTrace();
+			} catch (OWLOntologyCreationException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
+
 		
 
 	

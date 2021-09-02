@@ -2435,19 +2435,7 @@ DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: 
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
         <owl:sourceIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_contribution"/>
         <owl:assertionProperty rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_predecessor"/>
-        <owl:targetIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_contribution"/>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
-        <owl:sourceIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_contribution"/>
-        <owl:assertionProperty rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_predecessor"/>
         <owl:targetIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_definition"/>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
-        <owl:sourceIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_contribution"/>
-        <owl:assertionProperty rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_successor"/>
-        <owl:targetIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_contribution"/>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
@@ -2562,18 +2550,6 @@ DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: 
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
         <owl:sourceIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_validation"/>
-        <owl:assertionProperty rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_successor"/>
-        <owl:targetIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_integration"/>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
-        <owl:sourceIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_validation"/>
-        <owl:assertionProperty rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_successor"/>
-        <owl:targetIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_validation"/>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
-        <owl:sourceIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_validation"/>
         <owl:assertionProperty rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_predecessor"/>
         <owl:targetIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_assignment"/>
     </rdf:Description>
@@ -2586,8 +2562,8 @@ DIN SPEC 3105-1:2020-07 DIN SPEC 3105-1:2020-07, Open Source Hardware_- Teil_1: 
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
         <owl:sourceIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_validation"/>
-        <owl:assertionProperty rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_predecessor"/>
-        <owl:targetIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_validation"/>
+        <owl:assertionProperty rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#OSPD_process_successor"/>
+        <owl:targetIndividual rdf:resource="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_OSHPDP_schema.owl#Task_integration"/>
     </rdf:Description>
     
 
@@ -2740,8 +2716,8 @@ Testing</rdfs:comment>
     <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl#SkillEntity_id">
         <wif_issue_3_dpmap>/data/issues/result/edges/~/node/project/contributors/edges/~/node/user/profile/skills/~/id</wif_issue_3_dpmap>
         <wif_issue_1_dpmap>/data/issues/result/edges/~/node/creator/profile/skills/~/id</wif_issue_1_dpmap>
-        <wif_project_2_dpmap>/data/projects/result/edges/~/node/contributors/edges/~/node/user/profile/skills/~/id</wif_project_2_dpmap>
         <wif_user_1_dpmap>/data/profiles/result/edges/~/node/skills/~/id</wif_user_1_dpmap>
+        <wif_project_2_dpmap>/data/projects/result/edges/~/node/contributors/edges/~/node/user/profile/skills/~/id</wif_project_2_dpmap>
         <wif_user_4_dpmap>/data/profiles/result/edges/~/node/projects/edges/~/node/contributors/edges/~/node/user//profile/skills/~/id</wif_user_4_dpmap>
     </rdf:Description>
     <rdf:Description rdf:about="https://github.com/OPEN-NEXT/WP3_Skillmatching/raw/main/Skillmatching/data/on_skills.owl#SkillEntity_name">

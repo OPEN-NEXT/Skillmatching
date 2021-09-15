@@ -260,7 +260,7 @@ The query process for a platform owner works the same way as for contributors. T
 
 ### Class diagram
   
-| ![class_diagram](https://user-images.githubusercontent.com/59953831/130364364-33fcb2c2-01c5-4019-8e77-7db70555afaf.png)|
+| ![Code structure_v2](https://user-images.githubusercontent.com/59953831/133493500-268b36f4-02dd-4d7a-8a6d-218a91105eab.png)|
 |:---:|
 |*Figure 8: Class diagram*| 
   
@@ -283,7 +283,10 @@ This class uses the results of JSON data extraction from the combination of *JSO
 This class loads an NT-file (in the instantiation case provided by methods from *JSON2NTmapper.java* class) and provides a methods to enrich the file, e.g. with a statement to import the vocabulary of another ontology or setting different prefixes to the ontology. Also there are functions to convert the NT-file to another RDF based format. <br>
   
 *CreateInstances.java* <br>
-This class holds the *main()* method for the project data instantiation. It provides all input files and locations. Connecting the *OntoModeler.java*, *JSONReader.java*, *JSON2NTmapper.java* and *NTParser.java* classes, it coordinates the calling of methods and handover of parameters and results of methods. <br>
+This class contains the *main()* method for the instantiation of project data. It provides variables for prerequisite input files and their locations. Connecting the *OntoModeler.java*, *JSONReader.java*, *JSON2NTmapper.java* and *NTParser.java* classes, it coordinates the calling of methods and handover of parameters and results of methods during instantiation. <br>
+
+*InferenceOntology.java* <br>
+This class provides reasoning functionality, if it is necessary. It contains the *main()* method for reasoning and inferencing an instantiated ontology and provides a variable for the ontology IRI to load it and an output variable to save the ontology after reasoning. To load the ontology, assert inferences and save the ontology afterwards, the methods of the *OntoModeler.java* class are used. <br>
   
 *Queries.java* <br>
 This class provides methods to return SPARQL query strings based on the described user flows. <br>

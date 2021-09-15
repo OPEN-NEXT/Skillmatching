@@ -55,6 +55,14 @@ For customization reasons, the semantic consists of two ontologies referring to 
    - This file holds needed project data of the individuals
    - The file refers to and uses class and property expressions from the other two ontologies.
 
+## PREREQUISITS
+The following pre-requisites are recommended for the following sections: <br>
+- Basic knowledge about Ontology and semantics. An ontology is a concept used to model semantics (study of meaning, which enables developing parts of a language that can be understood and used commonly). A comprehensive overview can be found in [(Guarino et al. 2009)](#Gua). <br>
+- Knowledge about the constitution of RDF and OWL graphs, and constants: RDF <sup>[1](https://www.w3.org/TR/rdf-schema/)</sup> and OWL <sup>[2](https://www.w3.org/TR/owl-features/),[3](https://www.w3.org/TR/owl2-overview/)</sup> are used to model semantics. Both use triple patterns to create graphs interrelating resources and setting them into an interconnected network. An introduction into the topic is for example explained by [(Pan et al. 2017)](#Pan). <br>
+- SPARQL knowledge: SPARQL <sup>[4](https://www.w3.org/TR/2013/REC-sparql11-overview-20130321/),[5](https://www.w3.org/TR/sparql11-query/),[6](https://www.w3.org/TR/sparql-features/)</sup> is a query language for RDF data using graph patterns to restrict query response results. The referenced links provide a comprehensive overview about the functionality of SPARQL.<br>
+- JSON and JSON pointer: [(Pezoa et al. 2016)](#Pez) provides understandable insights for a quick introduction to the topic: JSON is based on the Java Script programming language and is used for web applications in order to send and retrieve API requests and responses. JSON pointer are both, a query language and a concept used for information retrieval from JSON documents via defined formatted strings, relating to a unique value in the JSON document.<br>
+- JAVA and JAVA APIs OWLAPI <sup>[7](https://github.com/owlcs/owlapi/)</sup> and JENA <sup>[8](https://jena.apache.org/)</sup> knowledge is helpful for developers who want to contribute to the demonstrator code. JENA API is an RDF open-source-framework for semantic networks. Most functionality is given for RDF graphs (like loading, serializing, saving, reasoning and querying) but functionality is also given to some extend on OWL based graphs. [(Antoniou und van Harmelen 2009)](#Ant) indicate which expressions overlap in RDF and OWL and which ones shift the scope of RDF. For OWL ontologies the OWLAPI provides complete functionality.<br>
+- Since the repository is stored on GitHub, general knowledge about GitHub and Git is assumed, referring to the GitHub guides <sup>[9](https://guides.github.com/)</sup>. <br>
 
 ## INSTRUCTIONS TO USE
 
@@ -352,3 +360,13 @@ The last section focuses on the steps from *“Start OntoModeler.java”* to *�
   
   The query execution flow is shown in Figure 11 and starts with the *RunQueries.java*. In this class the ontology IRI to be loaded and queried is provided as string variable. After initiation of a *Queries.java* and a *QueryExec.java* object, the ontology IRI is set for the query execution and the ontology model is loaded. The *Queries.java* class provides methods to return query strings for the execution on the ontology. In Figure 11 the example of the *UserSkillInterest()* query generation method is shown in the process. This can be replaced with other query generation methods from the *Queries.java* class. The generated query string is handed over to the query execution method of the *QueryExec.java* class. To execute the query a *Query* and a *QueryExecution* type variable are created and the result set from the query is generated. The result set is run through and the results for every variable is saved into a result list. The number of variables depends on the number of variables in SELECT clause of the query. At the end the result list is post-processed to match a table like layout.
   
+
+## REFERENCES
+
+<a id="Ant">Antoniou, Grigoris; van Harmelen, Frank (2009): Web Ontology Language: OWL. In: Steffen Staab und Rudi Studer (Hg.): Handbook on Ontologies. Berlin, Heidelberg: Springer Berlin Heidelberg, S. 91–110.</a>
+
+<a id="Gua">Guarino, Nicola; Oberle, Daniel; Staab, Steffen (2009): What Is an Ontology? In: Steffen Staab und Rudi Studer (Hg.): Handbook on Ontologies. Berlin, Heidelberg: Springer Berlin Heidelberg, S. 1–17.</a>
+
+<a id="Pan">Pan, Jeff Z.; Vetere, Guido; Gomez-Perez, Jose Manuel; Wu, Honghan (2017): Exploiting Linked Data and Knowledge Graphs in Large Organisations. Cham: Springer International Publishing.</a>
+
+<a id="Pez">Pezoa, Felipe; Reutter, Juan L.; Suarez, Fernando; Ugarte, Martín; Vrgoč, Domagoj (2016): Foundations of JSON Schema. In: Jacqueline Bourdeau, Jim A. Hendler, Roger Nkambou Nkambou, Ian Horrocks und Ben Y. Zhao (Hg.): Proceedings of the 25th International Conference on World Wide Web. WWW ‘16: 25th International World Wide Web Conference. Montréal Québec Canada, 11.04.2016-15.04.2016. Republic and Canton of Geneva, Switzerland: International World Wide Web Conferences Steering Committee, S. 263–273.</a>

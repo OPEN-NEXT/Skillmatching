@@ -305,31 +305,28 @@ The following diagrams visually facilitate the function of the main processes in
 The sequence for the instantiation process of the ontology in Figure 10 is shortened to a level of general understanding. To get a more elaborate insight of the explicit code function, the repository also provides a [complete flowchart](https://github.com/OPEN-NEXT/WP3_Skillmatching/blob/main/files/Flowchart_create_instances_complete.png) of all functions used, necessary to understand it. However, a detailed presentation of self-explanatory methods has been omitted (e.g. setter methods). Additionally, the methods are mostly described in the commented code as well.<br>
 
   #### Skill instantiation flow
-  
-|![Flowchart_Skill_instantiation](https://user-images.githubusercontent.com/59953831/128865178-fbd9a52b-6e62-404d-8454-caafcd99ca5a.png)|
-|:---:|
-|*Figure 9: Skill instantiation flow*|
 
 The skill instantiation is additionally presented shortly in writing. The *CreateSkill.java* class holds the main method and is responsible for the process flow.  <br>
 At the beginning an instance of the *SkillReader.java* class is created and the location for the JSON input file is given. This input file is read by a reader that now holds all information needed. Now the different pointers are set: <br>
 -	The pointer variable indicates which section of the input file is necessary for the instantiation <br>
--	The skill target variable indicates which values are instantiated as individuals (that counts e. g. for 3d-printing) <br>
--	The skill entity type variable shows how to classify a relating skill target variable (e. g. 3d-printing is an individual of the skill entity type class Process) <br>
+-	The skill target variable indicates which values are instantiated as individuals (that counts e. g. for *3d-printing*) <br>
+-	The skill entity type variable shows how to classify a relating skill target variable (e. g. *3d-printing* is an individual of the skill entity type class Process) <br>
 
 After setting all variables, the instantiation process begins (instantiateTargets()): <br>
 -	A pointer is created from the pointer string variable 
 -	If the pointer exists, the void skill ontology is loaded to be instantiated. 
 - The data array from the pointer variable is read 
 -	For each entry in the array a skill target and skill entity type are read and instantiated. A skill target variable is instantiated as individual of the class indicated by the relating skill entity type. 
--	After instantiation of all skill targets, the instantiated ontology is saved. 
+-	After instantiation of all skill targets, the instantiated ontology is saved and needs to be stored manually in the public project repository.  
   
+|![Flowchart_Skill_instantiation](https://user-images.githubusercontent.com/59953831/133494912-177c60e8-4cfc-4f98-8ac2-4c9fa878a1cb.png)|
+|:---:|
+|*Figure 9: Skill instantiation flow*|
+
+
   #### Project data instantiation flow
   
-| ![Flowchart_create_instances_short](https://user-images.githubusercontent.com/59953831/128865985-b976712e-e765-40ea-9f78-34e004f972f7.png) |
-|:---:|
-|*Figure 10: Flowchart Instantiation*|  
-  
-The instantiation process will be shortly described divided into four main parts. 
+The instantiation process will be shortly described divided into three main parts. 
   
 1.	Getting the mapping annotation properties from the OSH project ontology <br>
   
@@ -349,19 +346,30 @@ The explanations in this part refer to the steps from *“Start JSONReader.java�
   
 3.	Converting the NT file into an RDF format <br>
   
-This section concentrates on steps between *“Start NTParser.java”* and *“END NTParser.java”*. When created, the *NTParser.java* creates an ontology model that will be added with the further described information. Necessary prefixes are added to the ontology model with the *setPrefix()* method. The *readNTModel()* method reads the NT file with instances information from its location that was handed over to the constructor at creation. After setting the ontology IRI, adding necessary statements to import concepts and vocabulary from other ontologies and setting the output file location, the ontology model is saved in OWL format.
+This section concentrates on steps between *“Start NTParser.java”* and *“END NTParser.java”*. When created, the *NTParser.java* creates an ontology model that will be added with the further described information. Necessary prefixes are added to the ontology model with the *setPrefix()* method. The *readNTModel()* method reads the NT file with instances information from its location that was handed over to the constructor at creation. After setting the ontology IRI, adding necessary statements to import concepts and vocabulary from other ontologies and setting the output file location, the ontology model is saved in OWL format.<br>
+Afterwards, the ontology file needs to be manually stored in the public project repository. 
   
-4)	Reasoning over the ontology and assert inferences <br>
+|![Flowchart_create_instances_short_v2](https://user-images.githubusercontent.com/59953831/133495302-8dc3e824-7d11-4d5b-ac5d-47306b22253a.png)|
+|:---:|
+|*Figure 10: Instantiation flow*| 
+
+#### Reasoning over the ontology and assert inferences   
   
-The last section focuses on the steps from *“Start OntoModeler.java”* to *“END OntoModeler.java”*. After initializing an *OntoModeler.java* object, the instance ontology is loaded from its IRI. The *assertInferences()* method creates a reasoner, that precomputes inferences, creating new axioms for the ontology. A loop runs through the set of new axiom, adds it to the ontology and saves it.
+The reasoning process is shown in Figure 11. After setting the manual inputs, an *OntoModeler.java* object is initialized that loads the instance ontology from its IRI. The *assertInferences()* method creates a reasoner, that precomputes inferences, creating new axioms for the ontology. A loop runs through the set of new axiom, adds it to the ontology and saves it. Afterwards the ontology with asserted inferences has to be manually stored to the public project repository.
+
+|![Flowchart_reasoning](https://user-images.githubusercontent.com/59953831/133495708-44d08ec7-581c-42d8-9366-bc1e45152496.png)|
+|:---:|
+|*Figure 11: Reasoning process flow*| 
 
   #### Query execution flow
   
+  The query execution flow is shown in Figure 12 and starts with the *RunQueries.java*. In this class the ontology IRI to be loaded and queried is provided as string variable. After initiation of a *Queries.java* and a *QueryExec.java* object, the ontology IRI is set for the query execution and the ontology model is loaded. The *Queries.java* class provides methods to return query strings for the execution on the ontology. In Figure 11 the example of the *UserSkillInterest()* query generation method is shown in the process. This can be replaced with other query generation methods from the *Queries.java* class. The generated query string is handed over to the query execution method of the *QueryExec.java* class. To execute the query a *Query* and a *QueryExecution* type variable are created and the result set from the query is generated. The result set is run through and the results for every variable is saved into a result list. The number of variables depends on the number of variables in SELECT clause of the query. At the end the result list is post-processed to match a table like layout.
+  
 | ![Flowchart_query](https://user-images.githubusercontent.com/59953831/130364272-3ccb3ce2-e212-4f3e-847f-9f10c86b1172.png) |
 |:---:|
-|*Figure 11: Flowchart Query execution*| 
+|*Figure 12: Flowchart Query execution*| 
   
-  The query execution flow is shown in Figure 11 and starts with the *RunQueries.java*. In this class the ontology IRI to be loaded and queried is provided as string variable. After initiation of a *Queries.java* and a *QueryExec.java* object, the ontology IRI is set for the query execution and the ontology model is loaded. The *Queries.java* class provides methods to return query strings for the execution on the ontology. In Figure 11 the example of the *UserSkillInterest()* query generation method is shown in the process. This can be replaced with other query generation methods from the *Queries.java* class. The generated query string is handed over to the query execution method of the *QueryExec.java* class. To execute the query a *Query* and a *QueryExecution* type variable are created and the result set from the query is generated. The result set is run through and the results for every variable is saved into a result list. The number of variables depends on the number of variables in SELECT clause of the query. At the end the result list is post-processed to match a table like layout.
+  
   
 
 ## REFERENCES

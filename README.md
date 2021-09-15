@@ -32,30 +32,30 @@ The current development aim was to create a network that is able to give possibi
 Building on this development, the next steps aim is to identify regularities for skill matching in order to integrate them into the semantic network and enable case-related automatic assignment.
 
 ## SEMANTIC NETWORK
-Based on the user flows a semantic network was developed. The net structure of the main classes of the semantic network for the application case are shown in Figure 6.
+Based on the user flows a semantic network was developed. The net structure of the main classes of the semantic network for the application case are shown in Figure 1.
 | ![ontology_use_case_import](https://user-images.githubusercontent.com/59953831/128870214-5ceb8362-77d5-4299-9ca8-9be6e09207a8.png) |
 |:---:|
-| *Figure 6: Ontology classes for the user flow application* |
+| *Figure 1: Ontology classes for the user flow application* |
 
 For customization reasons, the semantic consists of two ontologies referring to each other but are therefore replacable, if necessary. A third lightweight ontology imports the other two ontologies to use the vocabulary for instantiation, hence also can be adapted easily.
 
-1. OSH project ontology (on_OSHPDP.owl)
+1. OSH project ontology [(on_OSHPDP.owl)](https://github.com/OPEN-NEXT/WP3_Skillmatching/tree/main/Skillmatching/data/on_OSHPD.owl)
    - This OWL ontology holds the architecture and semantic restrictions of the project landscape
-   - Main classes for the skillmatching case are "Person", "Project", "Task" and "Skill", that are related through properties.
+   - Main classes for the skillmatching case are "Person", "Project", "Task" and "Skill_Entity", that are related through properties.
    - Property restrictions arise from the use cases before mentioned
    - The OSHPD ontology imports the skill ontology
 
-2. Skill ontology (on_skills.owl)
+2. Skill ontology [(on_skills.owl)](https://github.com/OPEN-NEXT/WP3_Skillmatching/tree/main/Skillmatching/data/on_skills.owl)
    - This OWL ontology is based on the [ESCO skill hierarchy](https://ec.europa.eu/esco/portal/skill)
    - The ESCO hierarchy was cropped to the topics of mechanics, electrics/electronics, furniture and cars/mobiliy.
    - Afterwards a reclustering was done for ease of use purposes
    - The skill ontology is still to be validated with OSH project data
 
-3. Instantiation file (on_Instances.owl)
+3. Instantiation file [(on_Instances.owl)](https://github.com/OPEN-NEXT/WP3_Skillmatching/tree/main/Skillmatching/data/on_Instances.owl)
    - This file holds needed project data of the individuals
    - The file refers to and uses class and property expressions from the other two ontologies.
 
-## PREREQUISITS
+## PREREQUISITES
 The following pre-requisites are recommended for the following sections: <br>
 - Basic knowledge about Ontology and semantics. An ontology is a concept used to model semantics (study of meaning, which enables developing parts of a language that can be understood and used commonly). A comprehensive overview can be found in [(Guarino et al. 2009)](#Gua). <br>
 - Knowledge about the constitution of RDF and OWL graphs, and constants: RDF <sup>[1](https://www.w3.org/TR/rdf-schema/)</sup> and OWL <sup>[2](https://www.w3.org/TR/owl-features/),[3](https://www.w3.org/TR/owl2-overview/)</sup> are used to model semantics. Both use triple patterns to create graphs interrelating resources and setting them into an interconnected network. An introduction into the topic is for example explained by [(Pan et al. 2017)](#Pan). <br>
@@ -70,13 +70,13 @@ The following pre-requisites are recommended for the following sections: <br>
 The demonstrator has two the main functions instantiation and querying. Each of their usages are described below:<br>
 
   **i.	Instantiation** <br><p>
-An ontology was created for the development goal of skill matching. To make it widely applicable, it was created without any instances. Project data from WIF was integrated via data mapping afterwards. This offers the advantage of simpler validation in case the data structure changes. If so, a new instantiation can simply be achieved by changing the mappings. The mapping approach is based on the idea of [Méndez et al.](http://ceur-ws.org/Vol-2721/paper593.pdf) and connects the ontology concepts with JSON formatted input data via annotation properties. That means, that the mapping information is directly stored in the ontology itself. The mapping process is visualized in Figure 24. Classes and properties in the semantic network are annotated with JSON pointers to the relating fields in the GraphQL API from WIF whose data was used for validation. For every mapping a new annotation property is created. This gives the possibility to use more than one data source from either the same or a different platform. During later instantiation it is possible to choose in the demonstrator code how the mapping should be used.
+An ontology was created for the development goal of skill matching. To make it widely applicable, it was created without any instances. Project data from WIF was integrated via data mapping afterwards. This offers the advantage of simpler validation in case the data structure changes. If so, a new instantiation can simply be achieved by changing the mappings. The mapping approach is based on the idea of [Méndez et al.](http://ceur-ws.org/Vol-2721/paper593.pdf) and connects the ontology concepts with JSON formatted input data via annotation properties. That means, that the mapping information is directly stored in the ontology itself. The mapping process is visualized in Figure 2. Classes and properties in the semantic network are annotated with JSON pointers to the relating fields in the GraphQL API from WIF whose data was used for validation. For every mapping a new annotation property is created. This gives the possibility to use more than one data source from either the same or a different platform. During later instantiation it is possible to choose in the demonstrator code how the mapping should be used.
 For the user flow three different JSON data source files were created from query results of the WIF GraphQL API. This was done, so the first validation was not compromised by changes in the data structure during its constant progression and also because the user data had to be anonymized before used for instantiation.
 During the mapping process, the annotation with the JSON pointer is read out of the ontology and used to query the information in the JSON file that contains the input data. Afterwards those query results are instantiated based on which concept (class or property) was annotated in the first place. The instantiated individuals are saved in a separate file that uses the ontology vocabulary. 
 
 |![mapping_process_short](https://user-images.githubusercontent.com/59953831/128838638-3b051997-62d2-42c8-946b-9b1cdbdbb381.png)| 
 |:--:| 
-| *Figure 24: Mapping process* |
+| *Figure 2: Mapping process* |
 </p>
 
   **ii.	Querying** <br><p>

@@ -10,7 +10,17 @@
   The implementation of the ontology took results from a previous project (OPEN!) into account that also analysed processes and dynamics of OSH community.
 - Purpose of the ontology model is to fulfill the concepted user stories defined below.
 
-## USER FLOWS
+## TABLE OF CONTENTS
+#### [User flows](#UF)
+#### [Current status](#CS)
+#### [Semantic network](#SN)
+#### [Prerequisites](#PQ)
+#### [Installation](#IN)
+#### [Instructions to use](#IU)
+#### [Design notes](#DN)
+#### [References](#RF)
+
+## <a name="UF"/>USER FLOWS
 
 To gather the needs of the OSH community, expert interviews have been conducted. The team derived user stories from the input of those interviews.\
 User Stories of the D3.1 deliverable of the project can be accessed [here](https://github.com/OPEN-NEXT/wp3_pub)
@@ -21,7 +31,7 @@ Three main user stories are scope of the case:
  2. As a contributor on an OSH online platform, I want to find projects that require my specific skills in tasks, so that I can use, improve or evolve my skills.
  3. As a project core team, we want to find contributors based on their skills and interests so that they can help in carrying out a specific task.
 
-## CURRENT STATUS
+## <a name="CS"/>CURRENT STATUS
 The current development aim was to create a network that is able to give possibilities on assigning skills and interests to contributor profiles, tasks and projects and make them visible for queries. This was built based on the User flows described bevorhand. <br>
 
 - The currently first draft of the ontology model is validated with a sample of project data from Wikifactory. For the validation, user flows were identified and, based on this, queries developed to check for existing results. 
@@ -31,7 +41,7 @@ The current development aim was to create a network that is able to give possibi
 
 Building on this development, the next steps aim is to identify regularities for skill matching in order to integrate them into the semantic network and enable case-related automatic assignment.
 
-## SEMANTIC NETWORK
+## <a name="SN"/>SEMANTIC NETWORK
 Based on the user flows a semantic network was developed. The net structure of the main classes of the semantic network for the application case are shown in Figure 1.
 | ![ontology_use_case_import](https://user-images.githubusercontent.com/59953831/128870214-5ceb8362-77d5-4299-9ca8-9be6e09207a8.png) |
 |:---:|
@@ -55,7 +65,7 @@ For customization reasons, the semantic consists of two ontologies referring to 
    - This file holds needed project data of the individuals
    - The file refers to and uses class and property expressions from the other two ontologies.
 
-## PREREQUISITES
+## <a name="PQ"/>PREREQUISITES
 The following pre-requisites are recommended for the following sections: <br>
 - Basic knowledge about Ontology and semantics. An ontology is a concept used to model semantics (study of meaning, which enables developing parts of a language that can be understood and used commonly). A comprehensive overview can be found in [(Guarino et al. 2009)](#Gua). <br>
 - Knowledge about the constitution of RDF and OWL graphs, and constants: RDF <sup>[1](https://www.w3.org/TR/rdf-schema/)</sup> and OWL <sup>[2](https://www.w3.org/TR/owl-features/),[3](https://www.w3.org/TR/owl2-overview/)</sup> are used to model semantics. Both use triple patterns to create graphs interrelating resources and setting them into an interconnected network. An introduction into the topic is for example explained by [(Pan et al. 2017)](#Pan). <br>
@@ -64,7 +74,7 @@ The following pre-requisites are recommended for the following sections: <br>
 - JAVA and JAVA APIs OWLAPI <sup>[7](https://github.com/owlcs/owlapi/)</sup> and JENA <sup>[8](https://jena.apache.org/)</sup> knowledge is helpful for developers who want to contribute to the demonstrator code. JENA API is an RDF open-source-framework for semantic networks. Most functionality is given for RDF graphs (like loading, serializing, saving, reasoning and querying) but functionality is also given to some extend on OWL based graphs. [(Antoniou und van Harmelen 2009)](#Ant) indicate which expressions overlap in RDF and OWL and which ones shift the scope of RDF. For OWL ontologies the OWLAPI provides complete functionality.<br>
 - Since the repository is stored on GitHub, general knowledge about GitHub and Git is assumed, referring to the GitHub guides <sup>[9](https://guides.github.com/)</sup>. <br>
 
-## INSTALLATION
+## <a name="IN"/>INSTALLATION
 
 There is no specific installation needed. Depending on the use, the repository may have to be cloned. That is the case, when the mapping annotation properties in the ontology needs to be changed or if the query functionality provided in the demonstrator is used. For this general knowledge about Git is required. Furthermore, the structure of RDF and SPARQL should be known for the query use of the ontology. Interested developers, that need to change, adapt or improve the ontology, should be familiar with OWL and its extensions in contrast to RDF if aspiring reasoning or axiomizing. The following tables document the used software stack and the dependencies in software code. <br>
 
@@ -212,7 +222,7 @@ The library can be added in the Java Build Path by right clicking the project an
 Click Next. Choose Junit5. Click Apply and Close. <br>
 Now the demonstrator is ready to use.
 
-## INSTRUCTIONS TO USE
+## <a name="IU"/>INSTRUCTIONS TO USE
 
 **In this section classes from the code are mentioned and code lines are reffered to. To better understand the usage section it is advised here, to study the class diagram and the descriptions of the classes functions from the DESIGN NOTE section of the repository.** <br><br>
 The demonstrator has two the main functions instantiation and querying. Each of their usages are described below:<br>
@@ -403,7 +413,7 @@ The query process for a platform owner works the same way as for contributors. T
 |:---:|
 |*Figure 41: Exemplary query results*|
   
-## DESIGN NOTES
+## <a name="DN"/>DESIGN NOTES
   
   The following section gives insights how the code is constituted and how the methods are handled to instantiate and query the ontology.
 
@@ -521,7 +531,7 @@ The reasoning process is shown in Figure 45. After setting the manual inputs, an
   
   
 
-## REFERENCES
+## <a name="RF"/>REFERENCES
 
 <a id="Ant">Antoniou, Grigoris; van Harmelen, Frank (2009): Web Ontology Language: OWL. In: Steffen Staab und Rudi Studer (Hg.): Handbook on Ontologies. Berlin, Heidelberg: Springer Berlin Heidelberg, S. 91–110.</a>
 

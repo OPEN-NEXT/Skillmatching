@@ -406,14 +406,28 @@ In the given code of the demonstrator were three JSON input files. To instantiat
     |*Figure 38: Setting ontology saving location in CreateInstances.java*|
   
 9.	The last step is to run the *CreateInstances.java* class<br>
-The reasoner to assert the inferences needs some time depending on the amount of data that should be instantiated. The instantiation process has ended, when the ontology saving statement (Figure 40) appears on the console.<br>
-    | ![Fig 49_Running_the_CreateInstances java_class](https://user-images.githubusercontent.com/59953831/128858386-d4f6ab23-2abb-4164-bf0c-13ec7d16c738.png) |
+
+    | ![Fig 49_Running_the_CreateInstances java_class](https://user-images.githubusercontent.com/59953831/128858386-d4f6ab23-2abb-4164-bf0c-13ec7d16c738.png)|
     |:---:|
     |*Figure 39: Running the CreateInstances.java class*|
 
-    | ![Fig 50_Saving_statement_for_the_ontology_on_the_console](https://user-images.githubusercontent.com/59953831/128858353-651e8cbf-fa2a-4e43-9bad-359be50930ec.png) |
-    |:---:|
-    |*Figure 40: Saving statement for the ontology on the console*|
+
+**Optional**: If statements in the instantiation should be inferred, the next optional steps are necessary: <br><br>
+
+  10. Bevor the reasoning can start, the intantiated ontology has to be publicly provided, so it can be loaded from its namespace. <br> 
+
+  11. The variables *instanceIRI* and *directory* in the *InferenceOntology.java* class need to be set. Setting the instanceIRI variable to the location the          instantiated ontology is provided and the directory variable to the local location the new inferred ontology should be saved to. <br>    
+    
+  | ![grafik](https://user-images.githubusercontent.com/59953831/133607575-c4e7c7f1-a8d7-40e4-8de1-86ad2508d45f.png)|
+  |:---:|
+  |*Figure 40: Setting variables in the InferenceOntology.java class*|
+  
+  12. Start the *main()* method from the *InferenceOntology.java* class <br>
+      The reasoner needs some time to assert the inferences depending on the amount of data that should be instantiated. The instantiation process has ended,       when the ontology saving statement (Figure 41) appears on the console.<br>
+    
+  | ![Fig 50_Saving_statement_for_the_ontology_on_the_console](https://user-images.githubusercontent.com/59953831/128858353-651e8cbf-fa2a-4e43-9bad-359be50930ec.png) |
+  |:---:|
+  |*Figure 41: Saving statement for the ontology on the console*|
 
 #### <a name="Owner4"/>Custom querying
   
@@ -425,7 +439,7 @@ The query process for a platform owner works the same way as for contributors. T
 
 | ![Fig 51_Exemplary_query_results](https://user-images.githubusercontent.com/59953831/128859421-3669e3dd-473e-4db3-9177-2034c57feb42.png) |
 |:---:|
-|*Figure 41: Exemplary query results*|
+|*Figure 42: Exemplary query results*|
   
 ## <a name="DN"/>DESIGN NOTES
   
@@ -435,7 +449,7 @@ The query process for a platform owner works the same way as for contributors. T
   
 | ![Code structure_v2](https://user-images.githubusercontent.com/59953831/133493500-268b36f4-02dd-4d7a-8a6d-218a91105eab.png)|
 |:---:|
-|*Figure 42: Class diagram*| 
+|*Figure 43: Class diagram*| 
   
 *OntoModeler.java* <br>
 The *OntoModeler.java* class is used to create, load and save, handle and serialize OWL ontologies and ontology files. The main functionality in the demonstrator is, besides loading and saving the ontologies, to read out the mappings of the OSH project ontology, get information about the relating concepts (e. g. get the domain class of an object property) and to instantiate information from the JSON input files (this happens mainly in case of skill data instantiation). Also it is used for reasoning during the instantiation of the project data and saving the instances ontology. <br>
@@ -473,9 +487,9 @@ This class holds the *main()* method for the querying process and uses SPARQL qu
   
 ### <a name="Flow"/>Flow charts
 
-The following diagrams visually facilitate the function of the main processes instantiation and querying. The instantiation process works differently for the skill instantiation and the project data instantiation. Both are shown below, for skill instantiation in Figure 40 and for the instantiation of the project data in Figure 11. The flow charts are provided in a sequential structure, indicated by the process arrows. At the same time the different classes used are displayed in a swim lane fashion, indicated by lines without arrows. Before starting the instantiation process, it is possible to change needed variables, shown in the manual input section of the flow charts. For the user flows of the project, all variables are set and the instantiation methods were executed resulting in a fully instantiated ontology, which is ready to be queried.<br>
+The following diagrams visually facilitate the function of the main processes instantiation and querying. The instantiation process works differently for the skill instantiation and the project data instantiation. Both are shown below, for skill instantiation in Figure 44 and for the instantiation of the project data in Figure 45. The flow charts are provided in a sequential structure, indicated by the process arrows. At the same time the different classes used are displayed in a swim lane fashion, indicated by lines without arrows. Before starting the instantiation process, it is possible to change needed variables, shown in the manual input section of the flow charts. For the user flows of the project, all variables are set and the instantiation methods were executed resulting in a fully instantiated ontology, which is ready to be queried.<br>
   
-The sequence for the instantiation process of the ontology in Figure 44 is shortened to a level of general understanding. To get a more elaborate insight of the explicit code function, the repository also provides a [complete flowchart](https://github.com/OPEN-NEXT/WP3_Skillmatching/blob/main/files/Flowchart_create_instances_complete.png) of all functions used, necessary to understand it. However, a detailed presentation of self-explanatory methods has been omitted (e.g. setter methods). Additionally, the methods are mostly described in the commented code as well.<br>
+The sequence for the instantiation process of the ontology in Figure 45 is shortened to a level of general understanding. To get a more elaborate insight of the explicit code function, the repository also provides a [complete flowchart](https://github.com/OPEN-NEXT/WP3_Skillmatching/blob/main/files/Flowchart_create_instances_complete.png) of all functions used, necessary to understand it. However, a detailed presentation of self-explanatory methods has been omitted (e.g. setter methods). Additionally, the methods are mostly described in the commented code as well.<br>
 
   #### <a name="FlowSkill"/>Skill instantiation flow
 
@@ -494,7 +508,7 @@ After setting all variables, the instantiation process begins (instantiateTarget
   
 |![Flowchart_Skill_instantiation](https://user-images.githubusercontent.com/59953831/133494912-177c60e8-4cfc-4f98-8ac2-4c9fa878a1cb.png)|
 |:---:|
-|*Figure 43: Skill instantiation flow*|
+|*Figure 44: Skill instantiation flow*|
 
 
   #### <a name="FlowProject"/>Project data instantiation flow
@@ -524,23 +538,23 @@ Afterwards, the ontology file needs to be manually stored in the public project 
   
 |![Flowchart_create_instances_short_v2](https://user-images.githubusercontent.com/59953831/133495302-8dc3e824-7d11-4d5b-ac5d-47306b22253a.png)|
 |:---:|
-|*Figure 44: Instantiation flow*| 
+|*Figure 45: Instantiation flow*| 
 
 #### <a name="FlowReason"/>Reasoning over the ontology and assert inferences   
   
-The reasoning process is shown in Figure 45. After setting the manual inputs, an *OntoModeler.java* object is initialized that loads the instance ontology from its IRI. The *assertInferences()* method creates a reasoner, that precomputes inferences, creating new axioms for the ontology. A loop runs through the set of new axiom, adds it to the ontology and saves it. Afterwards the ontology with asserted inferences has to be manually stored to the public project repository.
+The reasoning process is shown in Figure 46. After setting the manual inputs, an *OntoModeler.java* object is initialized that loads the instance ontology from its IRI. The *assertInferences()* method creates a reasoner, that precomputes inferences, creating new axioms for the ontology. A loop runs through the set of new axiom, adds it to the ontology and saves it. Afterwards the ontology with asserted inferences has to be manually stored to the public project repository.
 
 |![Flowchart_reasoning](https://user-images.githubusercontent.com/59953831/133495708-44d08ec7-581c-42d8-9366-bc1e45152496.png)|
 |:---:|
-|*Figure 45: Reasoning process flow*| 
+|*Figure 46: Reasoning process flow*| 
 
   #### <a name="FlowQuery"/>Query execution flow
   
-  The query execution flow is shown in Figure 46 and starts with the *RunQueries.java*. In this class the ontology IRI to be loaded and queried is provided as string variable. After initiation of a *Queries.java* and a *QueryExec.java* object, the ontology IRI is set for the query execution and the ontology model is loaded. The *Queries.java* class provides methods to return query strings for the execution on the ontology. In Figure 46 the example of the *UserSkillInterest()* query generation method is shown in the process. This can be replaced with other query generation methods from the *Queries.java* class. The generated query string is handed over to the query execution method of the *QueryExec.java* class. To execute the query a *Query* and a *QueryExecution* type variable are created and the result set from the query is generated. The result set is run through and the results for every variable is saved into a result list. The number of variables depends on the number of variables in SELECT clause of the query. At the end the result list is post-processed to match a table like layout.
+  The query execution flow is shown in Figure 47 and starts with the *RunQueries.java*. In this class the ontology IRI to be loaded and queried is provided as string variable. After initiation of a *Queries.java* and a *QueryExec.java* object, the ontology IRI is set for the query execution and the ontology model is loaded. The *Queries.java* class provides methods to return query strings for the execution on the ontology. In Figure 47 the example of the *UserSkillInterest()* query generation method is shown in the process. This can be replaced with other query generation methods from the *Queries.java* class. The generated query string is handed over to the query execution method of the *QueryExec.java* class. To execute the query a *Query* and a *QueryExecution* type variable are created and the result set from the query is generated. The result set is run through and the results for every variable is saved into a result list. The number of variables depends on the number of variables in SELECT clause of the query. At the end the result list is post-processed to match a table like layout.
   
 | ![Flowchart_query](https://user-images.githubusercontent.com/59953831/130364272-3ccb3ce2-e212-4f3e-847f-9f10c86b1172.png) |
 |:---:|
-|*Figure 46: Flowchart Query execution*| 
+|*Figure 47: Flowchart Query execution*| 
   
   
   

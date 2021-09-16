@@ -17,7 +17,21 @@
 #### [Prerequisites](#PQ)
 #### [Installation](#IN)
 #### [Instructions to use](#IU)
+  - [Step-by-step example for contributor and project core team](#Contributor) <br>
+    - [Using the query code in the demonstrator](#Contributor2) <br>
+    - [Using an editor with SPARQL functionality](#Contributor3) <br>
+  - [Step-by-step example for platform owner](#Owner) <br>
+    - [Reference the ontologies or use for own purpose](#Owner2) <br> 
+    - [Custom instantiation](#Owner3) <br>
+    - [Custom querying](#Owner4) <br>  
 #### [Design notes](#DN)
+ - [Class diagramm](#Class) <br>
+ - [Flow charts](#Flow) <br>
+    - [Skill instantiation flow](#FlowSkill) <br>
+    - [Project data instantiation flow](#FlowProject) <br>
+    - [Reasoning over the ontology and assert inferences](#FlowReason) <br>
+    - [Query execution flow](#FlowQuery) <br>
+    
 #### [References](#RF)
 
 ## <a name="UF"/>USER FLOWS
@@ -47,9 +61,9 @@ Based on the user flows a semantic network was developed. The net structure of t
 |:---:|
 | *Figure 1: Ontology classes for the user flow application* |
 
-For customization reasons, the semantic consists of two ontologies referring to each other but are therefore replacable, if necessary. A third lightweight ontology imports the other two ontologies to use the vocabulary for instantiation, hence also can be adapted easily.
+For customization reasons, the semantic consists of two ontologies referring to each other but are therefore replacable, if necessary. A third lightweight ontology imports the other two ontologies to use the vocabulary for instantiation, hence also can be adapted easily. <br>
 
-1. OSH project ontology [(on_OSHPDP.owl)](https://github.com/OPEN-NEXT/WP3_Skillmatching/tree/main/Skillmatching/data/on_OSHPD.owl)
+ 1. OSH project ontology [(on_OSHPDP.owl)](https://github.com/OPEN-NEXT/WP3_Skillmatching/tree/main/Skillmatching/data/on_OSHPD.owl)
    - This OWL ontology holds the architecture and semantic restrictions of the project landscape
    - Main classes for the skillmatching case are "Person", "Project", "Task" and "Skill_Entity", that are related through properties.
    - Property restrictions arise from the use cases before mentioned
@@ -240,7 +254,7 @@ During the mapping process, the annotation with the JSON pointer is read out of 
   **ii.	Querying** <br><p>
 After instantiation, the semantic network can be queried. The query functions in the demonstrator use a query string as input, therefore individual queries are also possible, if implemented in the code. More on this is explained in the step-by-step example section for querying.</p>
 
-### Step-by-step example for contributor and project core team
+### <a name="Contributor"/>Step-by-step example for contributor and project core team
 
 <p>This sub-section provides an example of how a contributor and a project core team member can interact with the skill-matchmaking demonstrator. The contributor would like to update his/her profile and hence can select the suitable skills from a list of skills provided by querying the skill ontology. The project core team member can select the skills and tools required to fulfil a task in the project by querying the skill ontology in the backend. The current demonstrator is integrated with data from the Wikifactory platform and an example of these query results is shown below.</p>
 
@@ -254,7 +268,7 @@ Direct user interaction with the ontology takes place in user flows 2 and 3. The
 The query for **UF2** looks for projects that are tagged with the same skills a user (here exemplary user *uid113*) provides.<br>
 The query for **UF3** looks for all users that are connected to the *3dprinting Skill_Entity*.
 
-####	Using the query code in the demonstrator
+####	<a name="Contributor2"/>Using the query code in the demonstrator
 <p>There is also a query class provided in the demonstrator with some example queries. To use those, you need to clone the repository or copy the source code of the Queries.java class in the query package. For other queries, those have to be written in strings and given as parameters into the query function. A flow charts in the annex section gives a better illustration of the process.</p>
 
 1.	At the beginning the repository has to be cloned or downloaded. (This step depends on the environment used and should accordingly be identified on an individual basis. An example for the stated software stack is given in the Installation section.)
@@ -281,7 +295,7 @@ The query for **UF3** looks for all users that are connected to the *3dprinting 
 7.  he generated result list can now further be processed, e.g. for frontend display.
 <br>
 
-#### Using an editor with SPARQL functionality
+#### <a name="Contributor3"/>Using an editor with SPARQL functionality
   
 <p>To show the general function, an example of the use is given with the ontology editor Protégé which also provides a SPARQL plugin for query. </p>
 
@@ -302,7 +316,7 @@ The query for **UF3** looks for all users that are connected to the *3dprinting 
     |:---:|:---:|
     |*Figure 26: UF2 query results*|*Figure 27: UF3 query results*|
   
-### Step-by-step example for platform owner
+### <a name="Owner"/>Step-by-step example for platform owner
 
 <p>The core ontology is open source and can be used by other platforms similar to WIF for carrying out skill based matchmaking. There are three different ways platforms can use and integrate the demonstrator, they are:</p>
 
@@ -311,7 +325,7 @@ The query for **UF3** looks for all users that are connected to the *3dprinting 
 
 <p>To connect the ontology to the platform data the next step is to carry out instantiation, followed by developing suitable queries to retrieve matchmaking information from the ontology. Each of these steps are explained in the following sub-sections.</p>
 
-#### Reference the ontologies or use for own purpose
+#### <a name="Owner2"/>Reference the ontologies or use for own purpose
 
 -	**Direct use** <br>
 <p>To use the ontology for own data connection, e. g. for any other platform owner, it is possible just to refer to its location on the repository as namespace 
@@ -329,7 +343,7 @@ and use the vocabulary for instantiation. The ontology is public and directly ac
 1.	Downloading the ontology to new folder structure (local or server) <br>
 2.	Changing the namespace, prefixes and import statement in the ontology file accordingly to fit the new file's location(s).</p>
 
-#### Custom instantiation
+#### <a name="Owner3"/>Custom instantiation
 
 The mapping process is quite trivial. So, if there is very complicated data, that has to be mapped with rules and exceptions, an expansion based on the current mapping approach or another mapping process is recommended. <br>
 1.	Cloning or downloading the repository <br>
@@ -401,7 +415,7 @@ The reasoner to assert the inferences needs some time depending on the amount of
     |:---:|
     |*Figure 40: Saving statement for the ontology on the console*|
 
-#### Custom querying
+#### <a name="Owner4"/>Custom querying
   
 The query process for a platform owner works the same way as for contributors. The queries just vary based on intended results. An example for a platform owner is given below. The query answers the question, what projects can be suggested for users to participate and vice versa.<br>
 
@@ -417,7 +431,7 @@ The query process for a platform owner works the same way as for contributors. T
   
   The following section gives insights how the code is constituted and how the methods are handled to instantiate and query the ontology.
 
-### Class diagram
+### <a name="Class"/>Class diagram
   
 | ![Code structure_v2](https://user-images.githubusercontent.com/59953831/133493500-268b36f4-02dd-4d7a-8a6d-218a91105eab.png)|
 |:---:|
@@ -457,13 +471,13 @@ The *QueryExec.java* class connects to an ontology and executes queries on it. I
 This class holds the *main()* method for the querying process and uses SPARQL queries from the Queries.java class passing it to the *QueryExec.java* class.
 
   
-### Flow charts
+### <a name="Flow"/>Flow charts
 
 The following diagrams visually facilitate the function of the main processes instantiation and querying. The instantiation process works differently for the skill instantiation and the project data instantiation. Both are shown below, for skill instantiation in Figure 40 and for the instantiation of the project data in Figure 11. The flow charts are provided in a sequential structure, indicated by the process arrows. At the same time the different classes used are displayed in a swim lane fashion, indicated by lines without arrows. Before starting the instantiation process, it is possible to change needed variables, shown in the manual input section of the flow charts. For the user flows of the project, all variables are set and the instantiation methods were executed resulting in a fully instantiated ontology, which is ready to be queried.<br>
   
 The sequence for the instantiation process of the ontology in Figure 44 is shortened to a level of general understanding. To get a more elaborate insight of the explicit code function, the repository also provides a [complete flowchart](https://github.com/OPEN-NEXT/WP3_Skillmatching/blob/main/files/Flowchart_create_instances_complete.png) of all functions used, necessary to understand it. However, a detailed presentation of self-explanatory methods has been omitted (e.g. setter methods). Additionally, the methods are mostly described in the commented code as well.<br>
 
-  #### Skill instantiation flow
+  #### <a name="FlowSkill"/>Skill instantiation flow
 
 The skill instantiation is additionally presented shortly in writing. The *CreateSkill.java* class holds the main method and is responsible for the process flow.  <br>
 At the beginning an instance of the *SkillReader.java* class is created and the location for the JSON input file is given. This input file is read by a reader that now holds all information needed. Now the different pointers are set: <br>
@@ -483,7 +497,7 @@ After setting all variables, the instantiation process begins (instantiateTarget
 |*Figure 43: Skill instantiation flow*|
 
 
-  #### Project data instantiation flow
+  #### <a name="FlowProject"/>Project data instantiation flow
   
 The instantiation process will be shortly described divided into three main parts. 
   
@@ -512,7 +526,7 @@ Afterwards, the ontology file needs to be manually stored in the public project 
 |:---:|
 |*Figure 44: Instantiation flow*| 
 
-#### Reasoning over the ontology and assert inferences   
+#### <a name="FlowReason"/>Reasoning over the ontology and assert inferences   
   
 The reasoning process is shown in Figure 45. After setting the manual inputs, an *OntoModeler.java* object is initialized that loads the instance ontology from its IRI. The *assertInferences()* method creates a reasoner, that precomputes inferences, creating new axioms for the ontology. A loop runs through the set of new axiom, adds it to the ontology and saves it. Afterwards the ontology with asserted inferences has to be manually stored to the public project repository.
 
@@ -520,7 +534,7 @@ The reasoning process is shown in Figure 45. After setting the manual inputs, an
 |:---:|
 |*Figure 45: Reasoning process flow*| 
 
-  #### Query execution flow
+  #### <a name="FlowQuery"/>Query execution flow
   
   The query execution flow is shown in Figure 46 and starts with the *RunQueries.java*. In this class the ontology IRI to be loaded and queried is provided as string variable. After initiation of a *Queries.java* and a *QueryExec.java* object, the ontology IRI is set for the query execution and the ontology model is loaded. The *Queries.java* class provides methods to return query strings for the execution on the ontology. In Figure 46 the example of the *UserSkillInterest()* query generation method is shown in the process. This can be replaced with other query generation methods from the *Queries.java* class. The generated query string is handed over to the query execution method of the *QueryExec.java* class. To execute the query a *Query* and a *QueryExecution* type variable are created and the result set from the query is generated. The result set is run through and the results for every variable is saved into a result list. The number of variables depends on the number of variables in SELECT clause of the query. At the end the result list is post-processed to match a table like layout.
   

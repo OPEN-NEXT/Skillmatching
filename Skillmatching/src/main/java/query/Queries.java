@@ -37,7 +37,7 @@ public class Queries {
 	/**This query looks at the skills of a users*/
 	public String UserSkill(String id) {
 		String query="SELECT ?User ?Skill_Entity\r\n" + 
-				"WHERE { ?Usera oshpd:User; oshpd:User_id \""+id+"\"; skills:skill_action ?Skill_Entity.}"; 
+				"WHERE { ?User a oshpd:User; oshpd:User_id \""+id+"\"; skills:skill_action ?Skill_Entity.}"; 
 		String out= prefixes+query;
 		return out;
 	}

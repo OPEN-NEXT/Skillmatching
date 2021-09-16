@@ -17,7 +17,7 @@ import json
 
 
 #file location
-filepath ='C:\\Users\\konierik\\Nextcloud2\\MA-Arbeit\\03_Ontology\\Skills\\WIF_data'
+filepath = #add directory of the sampledata files
 userfilepath=filepath+'\\sampledata_user.json'
 projectfilepath=filepath+'\\sampledata_projects.json'
 issuefilepath=filepath+'\\sampledata_issues.json'

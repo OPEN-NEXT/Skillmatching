@@ -200,7 +200,7 @@ public class CreateInstances {
 		
 		
 		//infer asserted axioms of the new ontology:
-		OntoModeler instance= new OntoModeler();
+		/*OntoModeler instance= new OntoModeler();
 		instance.setIRI(instanceIRI);
 		try {
 			instance.loadOnto();
@@ -218,7 +218,7 @@ public class CreateInstances {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
 		
 

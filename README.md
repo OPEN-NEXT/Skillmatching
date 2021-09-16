@@ -105,9 +105,9 @@ The following steps can be followed to run the demonstrator:
 
 5) Check if Eclipse uses the SSH key from GitHub
 
-|![F16 1](https://user-images.githubusercontent.com/59953831/133502635-072c02ef-b7e8-4636-83ce-bf9d7ce59a00.png) ![F16 2](https://user-images.githubusercontent.com/59953831/133502645-50a1635b-96a5-4ccb-8fa7-7759191c3278.png)| 
+|![F16_ges](https://user-images.githubusercontent.com/59953831/133556999-1b63dbd4-62cc-4de9-b895-c38fc377a8d8.png)| 
 |:--:| 
-| *Figure 4(16): Setting the SSH2 key in the preferences* |
+| *Figure 4: Setting the SSH2 key in the preferences* |
 
 The SSH keys used in Eclipse can be found under Window>Preferences>General>Network Connection>SSH2.
 If the key is not found there, it has to be added from the location it was saved during step 5) of this section. <br>
@@ -163,9 +163,9 @@ Now a Maven project needs to be imported that integrates the Git. <br>
 11) Import a Maven project
 Following File>Import>Existing Maven Projects
 
-|![F23 1](https://user-images.githubusercontent.com/59953831/133502785-1754ffae-c8bc-4940-876a-e74940c86381.png) ![F23 2](https://user-images.githubusercontent.com/59953831/133502798-164ac652-3f84-4684-99a9-4bcd0873587f.png)| 
+|![F23_ges](https://user-images.githubusercontent.com/59953831/133557136-b9c72ebb-5e0a-4b61-81d9-43beceae8908.png)| 
 |:--:| 
-| *Figure 11 (23): Importing existing Maven project* |
+| *Figure 11: Importing existing Maven project* |
 
 Choose the root directory with WP3_Skillmatching. For this manual another project WP3_Skillmatching_manual was created to be imported which is why it is displayed in the figures. For the use of the skill matching demonstrator the WP3_Skillmatching but has to be used.
 
@@ -185,9 +185,9 @@ If there are some errors right away, most likely the JAVA compiler version has t
 12) Set JAVA Compiler Version
 This can be done in the properties of the project. (Right click on the project)
 
-|![F26 1](https://user-images.githubusercontent.com/59953831/133502856-193330d5-e9dc-4d11-8836-207acd2eabb2.png) ![F26 2](https://user-images.githubusercontent.com/59953831/133502903-16309fcd-e5ab-4fbb-ad88-3a4b3bad3e83.png)| 
+|![F26_ges](https://user-images.githubusercontent.com/59953831/133557064-c0b34b33-1141-4c82-b3f0-e4eb000561ec.png)| 
 |:--:| 
-| *Figure 14 (26): Setting JAVA Compiler level* |
+| *Figure 14: Setting JAVA Compiler level* |
 
 In the Java Compiler tab the Use compliance from execution environment ‘J2SE-X.X’ on the Java Build Path needs to be unchecked and the Compiler compliance level has to be set to 1.8.<br>
 Click Apply and Close.
@@ -205,8 +205,7 @@ If an error on the JUnit import statement occurs in the *OntoModeler.java* class
 
 The library can be added in the Java Build Path by right clicking the project and following *Properties>Java Build Path>Libraries>Add Library >Junit >Junit5*.
 
-|![F29](https://user-images.githubusercontent.com/59953831/133502990-a4a25827-ce3a-4d4d-97e8-ab6be2879ec6.png) ![F29 2](https://user-images.githubusercontent.com/59953831/133503001-107aa975-824b-4710-8f02-4b56283e5756.png)
-| 
+|![F29_ges](https://user-images.githubusercontent.com/59953831/133557100-b7426697-d557-4e5e-b928-d736e18fd58d.png)| 
 |:--:| 
 | *Figure 17: Adding JUnit library* |
 
